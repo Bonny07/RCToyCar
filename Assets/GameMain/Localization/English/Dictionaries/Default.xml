@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Dictionaries>
   <Dictionary Language="English">
-    <String Key="Game.Name" Value="STAR FORCE" />
-    <String Key="Game.Description" Value="Game Framework Demo Program" />
+    <String Key="Game.Name" Value="RC Toy Car" />
+    <String Key="Game.Description" Value="Player's Nickname" />
     <String Key="Game.Website" Value="https://GameFramework.cn/" />
-    <String Key="Game.Summary" Value="This project is a demo game made with Game Framework. It's intended to demonstrate how this game framework should be used for developers' reference." />
-    <String Key="Game.Introduction" Value="Game Framework is literally a game framework, based on Unity game engine. It encapsulates commonly used game modules during development, and, to a large degree, standardises the process, enhances the development speed and ensures the product quality." />
-    <String Key="Menu.StartButton" Value="START" />
+    <String Key="Game.Summary" Value="An extremely casual little game, the average game time is very short, easy to get started, and the style is simple, suitable for players of all ages. This is a game made using Game Framework game framework." />
+    <String Key="Game.Introduction" Value="Reach goals and win by controlling the remote control car. The game time is 1 minute and 30 seconds. The player uses the buttons/virtual joystick to control the car. The initial HP of the car is 70. During the game, players can collect items on the field at will. If the car touches an obstacle, it will bounce back without damage. If the car touches other players, both players will bounce back and take 25 points of damage at the same time.." />
+    <String Key="Menu.StartButton" Value="Single Player" />
     <String Key="Menu.SettingButton" Value="SETTINGS" />
     <String Key="Menu.AboutButton" Value="ABOUT" />
     <String Key="Menu.QuitButton" Value="QUIT" />
     <String Key="Dialog.ConfirmButton" Value="OK" />
     <String Key="Dialog.CancelButton" Value="CANCEL" />
-    <String Key="Dialog.OtherButton" Value="" />
+    <String Key="Dialog.OtherButton" Value="Player Nickname" />
     <String Key="ForceUpdate.Title" Value="OUT OF DATE" />
     <String Key="ForceUpdate.Message" Value="The current game version is out-of-date. Would you like to go for update now?" />
     <String Key="ForceUpdate.UpdateButton" Value="UPDATE" />
@@ -21,8 +21,8 @@
     <String Key="AskQuitGame.Message" Value="Are you sure to quit the game?" />
     <String Key="Setting.Title" Value="SETTINGS" />
     <String Key="Setting.Music" Value="Music" />
-    <String Key="Setting.Sound" Value="Sound FX" />
-    <String Key="Setting.UISound" Value="UI Sound FX" />
+    <String Key="Setting.Sound" Value="Sound" />
+    <String Key="Setting.UISound" Value="UI Sound" />
     <String Key="Setting.Language" Value="Language" />
     <String Key="Setting.LanguageTips" Value="Language change demands restarting." />
   </Dictionary>

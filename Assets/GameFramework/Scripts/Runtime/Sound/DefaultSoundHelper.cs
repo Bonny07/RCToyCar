@@ -9,7 +9,7 @@ namespace UnityGameFramework.Runtime
 {
     /// <summary>
     /// 默认声音辅助器。
-    /// </summary>
+    /// </summary>F
     public class DefaultSoundHelper : SoundHelperBase
     {
         private ResourceComponent m_ResourceComponent = null;
