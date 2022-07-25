@@ -101,7 +101,7 @@ namespace StarForce
             LoadDictionary("Default");
 
             // Preload fonts
-            LoadFont("MainFont");
+            LoadFont("Poppins-Bold");
         }
 
         private void LoadConfig(string configName)

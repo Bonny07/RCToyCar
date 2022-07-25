@@ -23,7 +23,7 @@ namespace UnityGameFramework.Runtime
         private EntityLogic m_EntityLogic;
 
         /// <summary>
-        /// 获取实体编号。
+        /// 获取实体编号。    
         /// </summary>
         public int Id
         {
