@@ -33,23 +33,21 @@ public class SimpleCollectibleScript : MonoBehaviour
 
     private static int currentCountInscene = 0;
 
-    // Use this for initialization
+
     void Start()
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (rotate)
             transform.Rotate(Vector3.up * (rotationSpeed * Time.deltaTime), Space.World);
-
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")||other.CompareTag("Enemy"))
         {
             Collect();
         }
@@ -57,8 +55,6 @@ public class SimpleCollectibleScript : MonoBehaviour
 
     public void Collect()
     {
-
-
         //Below is space to add in your code for what happens based on the collectible type
 
         if (CollectibleType == CollectibleTypes.None)
@@ -72,8 +68,8 @@ public class SimpleCollectibleScript : MonoBehaviour
         {
             //TYPE 1  工具箱  回复20生命
             collectitem();
-
             Destroy(gameObject);
+
             Debug.Log("拾取工具箱");
         }
 
@@ -138,7 +134,6 @@ public class SimpleCollectibleScript : MonoBehaviour
         if (collectEffect)
             Instantiate(collectEffect, transform.position, Quaternion.identity);
     }
-
 
 }
 

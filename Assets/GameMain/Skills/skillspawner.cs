@@ -4,22 +4,46 @@ using UnityEngine;
 
 public class skillspawner : MonoBehaviour
 {
-    public GameObject skillobject;
+    public GameObject skillobject1;
+    public GameObject skillobject2;
+    public GameObject skillobject3;
+    
     public float coldDown = 2f;
-    public float nextSpawn;
-
-
-    void Start()
-    {
-        
-    }
+    public float nextSpawn=1f;
+    public int r;
+    
     
     void Update()
-    {
-        if (Time.time > nextSpawn)
+    { 
+        r = UnityEngine.Random.Range(1,4);
+        if (r == 1)
         {
-            nextSpawn = Time.time + coldDown;
-            Instantiate(skillobject, transform);
+            if (Time.time > nextSpawn)
+            {
+                nextSpawn = Time.time + coldDown;
+                Instantiate(skillobject1, transform);
+                r = UnityEngine.Random.Range(0, 4);
+            }
+        }
+        if (r == 2)
+        {
+            if (Time.time > nextSpawn)
+            {
+                nextSpawn = Time.time + coldDown;
+                Instantiate(skillobject2, transform);
+                r = UnityEngine.Random.Range(0, 4);
+            }
+        }
+        if (r == 3)
+        {
+            if (Time.time > nextSpawn)
+            {
+                nextSpawn = Time.time + coldDown;
+                Instantiate(skillobject3, transform);
+                r = UnityEngine.Random.Range(0, 4);
+            }
         }
     }
+    
+
 }

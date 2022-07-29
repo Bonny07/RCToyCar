@@ -41,11 +41,6 @@ namespace StarForce
         [SerializeField]
         private Toggle m_ChineseSimplifiedToggle = null;
 
-        [SerializeField]
-        private Toggle m_ChineseTraditionalToggle = null;
-
-        [SerializeField]
-        private Toggle m_KoreanToggle = null;
 
         private Language m_SelectedLanguage = Language.Unspecified;
 
@@ -103,28 +98,7 @@ namespace StarForce
             m_SelectedLanguage = Language.ChineseSimplified;
             RefreshLanguageTips();
         }
-
-        public void OnChineseTraditionalSelected(bool isOn)
-        {
-            if (!isOn)
-            {
-                return;
-            }
-
-            m_SelectedLanguage = Language.ChineseTraditional;
-            RefreshLanguageTips();
-        }
-
-        public void OnKoreanSelected(bool isOn)
-        {
-            if (!isOn)
-            {
-                return;
-            }
-
-            m_SelectedLanguage = Language.Korean;
-            RefreshLanguageTips();
-        }
+        
 
         public void OnSubmitButtonClick()
         {
@@ -169,13 +143,6 @@ namespace StarForce
                     m_ChineseSimplifiedToggle.isOn = true;
                     break;
 
-                case Language.ChineseTraditional:
-                    m_ChineseTraditionalToggle.isOn = true;
-                    break;
-
-                case Language.Korean:
-                    m_KoreanToggle.isOn = true;
-                    break;
 
                 default:
                     break;

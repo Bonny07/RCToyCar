@@ -31,22 +31,22 @@ public class Skill : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Alpha2)&&Speedup==1)
         {
-            Movement.speed = 12;
-            float timetotal = 0f;
-            timetotal += Time.deltaTime;
-            if (timetotal > 120f)
-            {
-                Movement.speed = 6;}
+            Invoke("SpeedUp", 0.4f);
+            Movement.speed = 18;
             Debug.Log("释放加速");
             Speedup--;
         }
-        if (Input.GetKey(KeyCode.Alpha3)&&Missile==1)
+        if (Input.GetKey(KeyCode.Space)&&Missile==1)
         {
 
             Debug.Log("释放导弹");
-            Missile--;
+            
         }
     }
+    void SpeedUp()
+    {
+        Movement.speed = 6;
+    }    
 }
 
 

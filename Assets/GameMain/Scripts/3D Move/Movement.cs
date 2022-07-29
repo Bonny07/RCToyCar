@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Security.Cryptography;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 public class Movement : MonoBehaviour
 {
@@ -11,56 +14,68 @@ public class Movement : MonoBehaviour
     public Transform cam;
 
     public static float speed = 6;
-    public float gravity = -9.81f;
-    public float jumpHeight = 3;
     Vector3 m_Velocity;
-    bool m_IsGrounded;
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
-
     float m_TurnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
-
-    // Update is called once per frame
+    private Rigidbody m_Rigidbody;
+    private bool isCrashing;
+    private float targetAngle;
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        m_Rigidbody = GetComponent<Rigidbody>();
+        /*Cursor.lockState = CursorLockMode.Locked;*/
     }
 
-    void Update()
+    private void Update()
     {
-        //jump
-        m_IsGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        if (m_IsGrounded && m_Velocity.y < 0)
-        {
-            m_Velocity.y = -2f;
-        }
-
-        if (Input.GetButtonDown("Jump") && m_IsGrounded)
-        {
-            m_Velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
-        }
-
-        //gravity
-        m_Velocity.y += gravity * Time.deltaTime;
-        controller.Move(m_Velocity * Time.deltaTime);
-        //walk
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         if (direction.magnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref m_TurnSmoothVelocity,
                 turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * (speed * Time.deltaTime));
         }
+    }
+
+    void FixedUpdate()
+    {
+        /*Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+        controller.Move(moveDir.normalized * (speed * Time.deltaTime));*/
+        if (Input.GetKey(KeyCode.W) && isCrashing == false || Input.GetKey(KeyCode.A) && isCrashing == false ||
+            Input.GetKey(KeyCode.S) && isCrashing == false || Input.GetKey(KeyCode.D) && isCrashing == false)
+        {
+            Vector3 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward * speed * 0.01f;
+            m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
+        }
+
+        if (isCrashing == true)
+        {
+            Vector3 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward * speed * (-0.04f);
+            m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            isCrashing = true;
+            Invoke("KnockBack", 0.8f);
+        }
+        if (collision.gameObject.CompareTag("Missile"))
+        {
+            Destroy(gameObject);
+            Debug.Log("???");
+        }
+    }
+
+    void KnockBack()
+    {
+        isCrashing = false;
     }
 }
