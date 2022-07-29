@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectibleType: 3
   rotate: 1
-  rotationSpeed: 10
+  rotationSpeed: 55
   collectSound: {fileID: 0}
   collectEffect: {fileID: 1702657300312902, guid: a45c51da10cf1a84abc6a99c06951e3f,
     type: 3}

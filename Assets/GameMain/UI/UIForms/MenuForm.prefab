@@ -1324,6 +1324,7 @@ GameObject:
   - component: {fileID: 22254414}
   - component: {fileID: 22372286}
   - component: {fileID: 11436932}
+  - component: {fileID: 5097464189626570405}
   m_Layer: 5
   m_Name: MenuForm
   m_TagString: Untagged
@@ -1395,6 +1396,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_QuitButton: {fileID: 176566}
+--- !u!114 &5097464189626570405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02bbd1c1f00c17842b1449ae2b66a932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MusicMuteToggle: {fileID: 1202102126329268683}
+  m_MusicVolumeSlider: {fileID: 0}
+  m_SoundMuteToggle: {fileID: 1202102126329268683}
+  m_SoundVolumeSlider: {fileID: 0}
+  m_UISoundMuteToggle: {fileID: 1202102126329268683}
+  m_UISoundVolumeSlider: {fileID: 0}
+  m_LanguageTipsCanvasGroup: {fileID: 0}
+  m_EnglishToggle: {fileID: 0}
+  m_ChineseSimplifiedToggle: {fileID: 0}
 --- !u!1 &1095523608726083127
 GameObject:
   m_ObjectHideFlags: 0

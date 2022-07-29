@@ -8,6 +8,7 @@
 using GameFramework;
 using GameFramework.DataTable;
 using GameFramework.Sound;
+using Unity.VisualScripting;
 using UnityGameFramework.Runtime;
 
 namespace StarForce
@@ -58,6 +59,7 @@ namespace StarForce
             {
                 Log.Warning("Can not load sound '{0}' from data table.", soundId.ToString());
                 return null;
+                
             }
 
             PlaySoundParams playSoundParams = PlaySoundParams.Create();

@@ -61,11 +61,7 @@ namespace StarForce
                     GameEntry.Localization.Language = Language.ChineseSimplified;
                     SaveLanguage();
                 }
-                if (GUILayout.Button("Chinese Traditional", GUILayout.Height(30)))
-                {
-                    GameEntry.Localization.Language = Language.ChineseTraditional;
-                    SaveLanguage();
-                }
+
                 if (GUILayout.Button("English", GUILayout.Height(30)))
                 {
                     GameEntry.Localization.Language = Language.English;

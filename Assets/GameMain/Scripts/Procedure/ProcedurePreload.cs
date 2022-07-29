@@ -29,7 +29,10 @@ namespace StarForce
             "Thruster",
             "UIForm",
             "UISound",
-            "Weapon",
+            "Weapon",            
+            "AssetsPath",
+            "RCCar",
+
         };
 
         private Dictionary<string, bool> m_LoadedFlag = new Dictionary<string, bool>();
