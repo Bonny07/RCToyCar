@@ -23,8 +23,6 @@ public class RCCarHealth : MonoBehaviour
         {
             gameObject.SetActive (false);
             Destroy(gameObject);
-            Debug.Log("GameOver");
-            GameOver();
         }
     }
 
@@ -35,16 +33,15 @@ public class RCCarHealth : MonoBehaviour
         {
             CurrentHealth -= 25f;
         }
-
+        if (collision.gameObject.CompareTag("Missile"))
+        {
+            CurrentHealth -= 200f;
+        }
     }
 
     public void Recover()
     {
         CurrentHealth += 20f;
     }
-
-    public void GameOver()
-    {
-        /*ProcedureChangeScene(MenuForm);*/
-    }
+    
 }
