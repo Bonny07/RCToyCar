@@ -15,7 +15,7 @@ using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedure
 
 namespace StarForce
 {
-    public class ProcedurePreload : ProcedureBase
+    public class  ProcedurePreload : ProcedureBase
     {
         public static readonly string[] DataTableNames = new string[]
         {
@@ -29,10 +29,8 @@ namespace StarForce
             "Thruster",
             "UIForm",
             "UISound",
-            "Weapon",            
-            "AssetsPath",
-            "RCCar",
-
+            "Weapon",
+            
         };
 
         private Dictionary<string, bool> m_LoadedFlag = new Dictionary<string, bool>();

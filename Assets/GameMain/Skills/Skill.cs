@@ -31,8 +31,8 @@ public class Skill : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Alpha2)&&Speedup==1)
         {
-            Invoke("SpeedUp", 0.4f);
-            Movement.speed = 18;
+            Invoke("SpeedUp", 0.5f);
+            Movement.speed = 36;
             Debug.Log("释放加速");
             Speedup--;
         }
