@@ -5,22 +5,22 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public float m_startHealth = 70f;
-    public float m_CurrentHealth;
+    public static float CurrentHealth;
     private bool m_Dead;
     private Rigidbody m_MissileBody;
 
     void Start()
     {
-        m_CurrentHealth = m_startHealth;
+        CurrentHealth = m_startHealth;
     }
 
     void Update()
     {
-        if (m_CurrentHealth <= 0f)
+        if (CurrentHealth <= 0f)
         {
             gameObject.SetActive (false);
             Destroy(gameObject);
-            Debug.Log("You Win");
+
         }
     }
 
@@ -29,7 +29,11 @@ public class EnemyHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            m_CurrentHealth -= 25f;
+            CurrentHealth -= 25f;
+        }
+        if (collision.gameObject.CompareTag("Missile"))
+        {
+            CurrentHealth -= 200f;
         }
     }
 
@@ -40,6 +44,6 @@ public class EnemyHealth : MonoBehaviour
     
     public void Recover()
     {
-        m_CurrentHealth += 20f;
+        CurrentHealth += 20f;
     }
 }

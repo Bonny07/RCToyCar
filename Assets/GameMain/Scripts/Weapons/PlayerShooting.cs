@@ -15,8 +15,8 @@ public class PlayerShooting : MonoBehaviour
     {
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+
+    void Update()
     {
         if (Input.GetKey(KeyCode.Space)&&Skill.Missile==1)
         {
@@ -31,4 +31,5 @@ public class PlayerShooting : MonoBehaviour
         shellInstance.velocity = m_LaunchForce * m_FireTransform.forward; 
         Debug.Log("释放导弹");
     }
+    //使用导弹道具后，从小车发射点向前发射一枚导弹
 }

@@ -18,6 +18,7 @@ public class MissileExplosion : MonoBehaviour
         // 如果碰到敌人
         if (other.gameObject.tag.Equals("Enemy"))
         {
+            EnemyHealth.CurrentHealth -= 100;
             other.GetComponent<EnemyHealth>().OnKilled();
             Destroy(gameObject);
         }
