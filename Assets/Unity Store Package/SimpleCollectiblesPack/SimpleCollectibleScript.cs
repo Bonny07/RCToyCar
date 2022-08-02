@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
-using ExitGames.Client.Photon.Encryption;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.EventSystems;
@@ -28,16 +27,7 @@ public class SimpleCollectibleScript : MonoBehaviour
     public AudioClip collectSound;
 
     public GameObject collectEffect;
-
-
-
-    private static int currentCountInscene = 0;
-
-
-    void Start()
-    {
-        
-    }
+    
     
     void Update()
     {
@@ -67,6 +57,7 @@ public class SimpleCollectibleScript : MonoBehaviour
         if (CollectibleType == CollectibleTypes.HealthRecover)
         {
             //TYPE 1  工具箱  回复20生命
+            RCCarHealth.CurrentHealth += 20;
             collectitem();
             Destroy(gameObject);
 

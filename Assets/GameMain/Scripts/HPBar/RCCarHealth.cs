@@ -1,22 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
-using StarForce;
 using UnityEngine;
+using GameFramework;
+using UnityGameFramework;
+using UnityGameFramework.Runtime;
+using GameEntry = StarForce.GameEntry;
 
 public class RCCarHealth : MonoBehaviour
 {
     public float m_startHealth = 70f;
-    public float m_CurrentHealth;
+    public static float CurrentHealth;
     private bool m_Dead;   
 
     void Start()
     {
-        m_CurrentHealth = m_startHealth;
+        CurrentHealth = m_startHealth;
     }
 
     void Update()
     {
-        if (m_CurrentHealth <= 0f)
+        if (CurrentHealth <= 0f)
         {
             gameObject.SetActive (false);
             Destroy(gameObject);
@@ -30,13 +33,14 @@ public class RCCarHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            m_CurrentHealth -= 25f;
+            CurrentHealth -= 25f;
         }
+
     }
 
     public void Recover()
     {
-        m_CurrentHealth += 20f;
+        CurrentHealth += 20f;
     }
 
     public void GameOver()

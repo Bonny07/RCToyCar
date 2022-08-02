@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 135974827869673480}
   m_Layer: 2
   m_Name: HealthPackGreen
-  m_TagString: Untagged
+  m_TagString: RepairKit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
