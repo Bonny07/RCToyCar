@@ -223,4 +223,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49558db65056ad148b4a2cecf530f531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxLifeTime: 1.5
+  m_MaxLifeTime: 5
+  m_ExplosionPrefab: {fileID: 151086, guid: 6bc6d0dd8b8428e4ca316513f2cf13c6, type: 3}

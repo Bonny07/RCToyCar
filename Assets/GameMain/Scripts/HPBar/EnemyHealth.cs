@@ -8,7 +8,15 @@ public class EnemyHealth : MonoBehaviour
     public static float CurrentHealth;
     private bool m_Dead;
     private Rigidbody m_MissileBody;
+    
+    public GameObject m_ExplosionPrefab;       
+    private ParticleSystem m_ExplosionParticles;  
 
+    private void Awake()
+    {
+        m_ExplosionParticles = Instantiate (m_ExplosionPrefab).GetComponent<ParticleSystem> ();
+        m_ExplosionParticles.gameObject.SetActive (false);
+    }
     void Start()
     {
         CurrentHealth = m_startHealth;
@@ -18,9 +26,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (CurrentHealth <= 0f)
         {
-            gameObject.SetActive (false);
-            Destroy(gameObject);
-
+            OnDeath();
         }
     }
 
@@ -39,11 +45,19 @@ public class EnemyHealth : MonoBehaviour
 
     public void OnKilled()
     {
-        Destroy(this.transform.gameObject);
+        OnDeath();
     }
     
     public void Recover()
     {
         CurrentHealth += 20f;
     }
+    private void OnDeath()
+    {
+        m_ExplosionParticles.transform.position = transform.position;
+        m_ExplosionParticles.gameObject.SetActive (true);
+        m_ExplosionParticles.Play ();
+        gameObject.SetActive (false);
+    }
+    
 }

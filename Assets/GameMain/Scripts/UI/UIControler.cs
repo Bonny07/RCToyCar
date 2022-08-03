@@ -15,27 +15,27 @@ public class UIControler : MonoBehaviour
 
     void Update()
     {
-        if (Skill.Shield == 1)
+        if (PlayerSkill.Shield == 1)
         {
             SkillShield.SetActive(true);
         }
-        if (Skill.Shield != 1)
+        if (PlayerSkill.Shield != 1)
         {
             SkillShield.SetActive(false);
         }
-        if (Skill.Speedup == 1)
+        if (PlayerSkill.Speedup == 1)
         {
             SkillSpeed.SetActive(true);
         }
-        if (Skill.Speedup != 1)
+        if (PlayerSkill.Speedup != 1)
         {
             SkillSpeed.SetActive(false);
         }
-        if (Skill.Missile == 1)
+        if (PlayerSkill.Missile == 1)
         {
             SkillMissile.SetActive(true);
         }
-        if (Skill.Missile != 1)
+        if (PlayerSkill.Missile != 1)
         {
             SkillMissile.SetActive(false);
         }

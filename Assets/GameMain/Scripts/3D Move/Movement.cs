@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
 {
     public Transform cam;
 
-    public static float speed = 6;  //玩家移动速度倍率
+    public static float speed = 12;  //玩家移动速度倍率
     Vector3 m_Velocity;
     float m_TurnSmoothVelocity;
     public float turnSmoothTime = 0.1f;  //玩家模型转向顺滑度

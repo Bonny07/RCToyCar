@@ -33,6 +33,7 @@ public class SimpleCollectibleScript : MonoBehaviour
     {
         if (rotate)
             transform.Rotate(Vector3.up * (rotationSpeed * Time.deltaTime), Space.World);
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -64,14 +65,14 @@ public class SimpleCollectibleScript : MonoBehaviour
             Debug.Log("拾取工具箱");
         }
 
-        if (Skill.Shield == 0)
+        if (PlayerSkill.Shield == 0)
         {
             if (CollectibleType == CollectibleTypes.Shield)
             {
                 //TYPE 2  护盾     使用时50%免伤2秒
                 collectitem();
 
-                Skill.Shield++;
+                PlayerSkill.Shield++;
                 Destroy(gameObject);
 
 
@@ -79,14 +80,14 @@ public class SimpleCollectibleScript : MonoBehaviour
             }
         }
 
-        if (Skill.Speedup == 0)
+        if (PlayerSkill.Speedup == 0)
         {
             if (CollectibleType == CollectibleTypes.SpeedUp)
             {
                 //加速     使用时增加50%速度1秒
                 
                 collectitem();
-                Skill.Speedup++;
+                PlayerSkill.Speedup++;
                 Destroy(gameObject);
 
 
@@ -94,13 +95,13 @@ public class SimpleCollectibleScript : MonoBehaviour
             }
         }
 
-        if (Skill.Missile == 0)
+        if (PlayerSkill.Missile == 0)
         {
             if (CollectibleType == CollectibleTypes.Missile)
             {
                 //使用时发射一颗子弹
                 collectitem();
-                Skill.Missile++;
+                PlayerSkill.Missile++;
                 Destroy(gameObject);
 
 

@@ -6,12 +6,12 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    public float patrolSpeed = 3f;
+    public float patrolSpeed = 8f;
     public float patrolWaitTime = 0.5f;
     public Transform patrolWayPoints;
     private int pointnum;
 
-    private NavMeshAgent m_Agent;
+    public static NavMeshAgent m_Agent;
     private float m_PatrolTimer = 0;
     private int m_WayPointIndex = 0;
 

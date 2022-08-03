@@ -19228,7 +19228,7 @@ GameObject:
   - component: {fileID: 19800010}
   - component: {fileID: 19900010}
   m_Layer: 0
-  m_Name: PlayerExplosion
+  m_Name: RCCarExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

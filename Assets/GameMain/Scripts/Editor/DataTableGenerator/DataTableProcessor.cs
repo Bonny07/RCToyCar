@@ -73,7 +73,6 @@ namespace StarForce.Editor.DataTableTools
                 {
                     throw new GameFrameworkException(Utility.Text.Format("Data table file '{0}', raw Column is '{2}', but line '{1}' column is '{3}'.", dataTableFileName, i, rawColumnCount, rawValue.Length));
                 }
-
                 rawValues.Add(rawValue);
             }
 

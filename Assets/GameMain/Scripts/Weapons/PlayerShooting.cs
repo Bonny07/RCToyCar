@@ -7,7 +7,7 @@ public class PlayerShooting : MonoBehaviour
     public int m_PlayerNumber = 1;
     public Rigidbody m_missile;  
     public Transform m_FireTransform;  
-    public float m_LaunchForce = 30f;
+    public float m_LaunchForce = 10f;
     
     private string m_FireButton;
     private bool m_Fired;
@@ -18,9 +18,9 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space)&&Skill.Missile==1)
+        if (Input.GetKey(KeyCode.Space)&&PlayerSkill.Missile==1)
         {
-            Skill.Missile --;
+            PlayerSkill.Missile --;
             Fire();
         }
     }
