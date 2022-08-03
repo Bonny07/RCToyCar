@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class MissileExplosion : MonoBehaviour
 {
-    public float m_MaxLifeTime = 2f;  
+    public float m_MaxLifeTime = 5f; 
+    private ParticleSystem m_ExplosionParticles;  
+    public GameObject m_ExplosionPrefab; 
 
     // Start is called before the first frame update
     void Start()
@@ -13,20 +15,30 @@ public class MissileExplosion : MonoBehaviour
         Destroy (gameObject, m_MaxLifeTime);
     }
 
+    private void Awake()
+    {
+        m_ExplosionParticles = Instantiate (m_ExplosionPrefab).GetComponent<ParticleSystem> ();
+        m_ExplosionParticles.gameObject.SetActive (false);
+    }
+    
     private void OnTriggerEnter (Collider other)
     {
         // 如果碰到敌人
         if (other.gameObject.tag.Equals("Enemy"))
         {
+            m_ExplosionParticles.transform.position = transform.position;
+            m_ExplosionParticles.gameObject.SetActive (true);
+            m_ExplosionParticles.Play ();
             EnemyHealth.CurrentHealth -= 100;
             other.GetComponent<EnemyHealth>().OnKilled();
             Destroy(gameObject);
         }
-        else
+        if (!other.gameObject.tag.Equals("Prop"))
         {
+            m_ExplosionParticles.transform.position = transform.position;
+            m_ExplosionParticles.gameObject.SetActive (true);
+            m_ExplosionParticles.Play ();
             Destroy(gameObject);
         }
-        
-        
     }
 }

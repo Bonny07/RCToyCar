@@ -1,22 +1,22 @@
-using GameFramework;
-using GameFramework.DataTable;
+using System;
 using UnityEngine;
-using UnityGameFramework.Runtime;
-using GameFramework.Event;
+using UnityEngine.UI;
+using TMPro;
 
-namespace StarForce
-{
+
     public class AIMode : MonoBehaviour
     {
         public float CountDown; //游戏计时器
-        private int GameResultNum; //游戏胜负判断
+        public static int GameResultNum; //游戏胜负判断
         private int TimeisUp;  //游戏时间是否结束
         public static float GameResultPlay=0f;
+        public TextMeshProUGUI CountDownText;
+
 
         void Start()
         {
             GameResultNum = 0;
-            TimeisUp = 1;
+            TimeisUp = 0;
             CountDown = 90f;
         }
 
@@ -25,6 +25,8 @@ namespace StarForce
         {
             CountDown-=Time.deltaTime;
             GameTimer();
+            GameController();
+            CountDownText.text = (int)CountDown + "s";
             //计时判断，时间归零则游戏结束
         }
 
@@ -33,38 +35,30 @@ namespace StarForce
             if (CountDown <= 0f || GameResultNum != 0)
             {
                 TimeisUp = 1;
-                GameController();
-                //胜负控制
             }
-
-            if (CountDown > 0f && GameResultNum != 0)
-            {
-                GameController();
-            }
-            
         }
 
          void GameController()
         {
-            if (RCCarHealth.CurrentHealth <= 0&&EnemyHealth.CurrentHealth>0)
+            if (RCCarHealth.CurrentHealth <= 0f&&EnemyHealth.CurrentHealth>0f)
             {
                 GameResultNum--;
                 GameResults();
             }
             //玩家被消灭，游戏判定失败
-            if (EnemyHealth.CurrentHealth <= 0&&RCCarHealth.CurrentHealth>0)
+            if (EnemyHealth.CurrentHealth <= 0f&&RCCarHealth.CurrentHealth>0f)
             {
                 GameResultNum++;
                 GameResults();
             }
             //敌方被消灭，游戏判定胜利
-            if (EnemyHealth.CurrentHealth <= 0 && RCCarHealth.CurrentHealth <= 0)
+            if (EnemyHealth.CurrentHealth <= 0f && RCCarHealth.CurrentHealth <= 0f)
             {
                 GameResultNum = 0;
                 GameResults();
             }
             //玩家与敌人同时被消灭,游戏判定平局
-            if (TimeisUp==1&&EnemyHealth.CurrentHealth>0&&RCCarHealth.CurrentHealth>0)
+            if (TimeisUp==1&&EnemyHealth.CurrentHealth>0f&&RCCarHealth.CurrentHealth>0f)
             {
                 if (EnemyHealth.CurrentHealth >= RCCarHealth.CurrentHealth)
                 {
@@ -93,24 +87,23 @@ namespace StarForce
             {
                 //判定游戏平局DRAW，播放平局UI，返回主菜单
                 GameResultPlay = 2f;
-                Time.timeScale = 0;
+
             }
 
             if (GameResultNum > 0)
             {
                 //判定游戏胜利Win，播放胜利UI，返回主菜单
                 GameResultPlay = 1f;
-                Time.timeScale = 0;
+
             }
 
             if (GameResultNum < 0)
             {
                 //判定游戏失败Fail，播放失败UI，返回主菜单
                 GameResultPlay = 3f;
-                Time.timeScale = 0;
+
             }
         }
         //游戏结算
     }
     
-}

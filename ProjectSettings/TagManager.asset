@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Missile
   - RepairKit
+  - Prop
   layers:
   - Default
   - TransparentFX
