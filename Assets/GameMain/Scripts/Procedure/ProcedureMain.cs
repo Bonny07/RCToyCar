@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
-namespace StarForce
+namespace RCToyCar
 {
     public class ProcedureMain : ProcedureBase
     {
@@ -37,7 +37,7 @@ namespace StarForce
         {
             base.OnInit(procedureOwner);
 
-            m_Games.Add(GameMode.Survival, new SurvivalGame());
+            m_Games.Add(GameMode.AIMode, new AIMode());
         }
 
         protected override void OnDestroy(ProcedureOwner procedureOwner)
@@ -50,7 +50,6 @@ namespace StarForce
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
-
             m_GotoMenu = false;
             GameMode gameMode = (GameMode)procedureOwner.GetData<VarByte>("GameMode").Value;
             m_CurrentGame = m_Games[gameMode];

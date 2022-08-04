@@ -9,7 +9,7 @@ using GameFramework.Event;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-namespace StarForce
+namespace RCToyCar
 {
     public abstract class GameBase
     {
@@ -37,18 +37,18 @@ namespace StarForce
             GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
             GameEntry.Event.Subscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFailure);
 
-            SceneBackground = Object.FindObjectOfType<ScrollableBackground>();
+            /*SceneBackground = Object.FindObjectOfType<ScrollableBackground>();
             if (SceneBackground == null)
             {
                 Log.Warning("Can not find scene background.");
                 return;
             }
-
-            SceneBackground.VisibleBoundary.gameObject.GetOrAddComponent<HideByBoundary>();
+            SceneBackground.VisibleBoundary.gameObject.GetOrAddComponent<HideByBoundary>();*/
+            
             GameEntry.Entity.ShowMyAircraft(new MyAircraftData(GameEntry.Entity.GenerateSerialId(), 10003)
             {
-                Name = "My Aircraft",
-                Position = Vector3.zero,
+                Name = "PlayerCar",
+                Position =new Vector3(13f,0f,-35f),
             });
 
             GameOver = false;
@@ -63,7 +63,7 @@ namespace StarForce
 
         public virtual void Update(float elapseSeconds, float realElapseSeconds)
         {
-            if (m_MyAircraft != null && m_MyAircraft.IsDead)
+            if (GameController.GameResultPlay != 0f)
             {
                 GameOver = true;
                 return;

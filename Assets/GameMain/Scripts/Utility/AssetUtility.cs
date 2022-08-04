@@ -7,7 +7,7 @@
 
 using GameFramework;
 
-namespace StarForce
+namespace RCToyCar
 {
     public static class AssetUtility
     {

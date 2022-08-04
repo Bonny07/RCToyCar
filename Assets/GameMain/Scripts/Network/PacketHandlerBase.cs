@@ -7,7 +7,7 @@
 
 using GameFramework.Network;
 
-namespace StarForce
+namespace RCToyCar
 {
     public abstract class PacketHandlerBase : IPacketHandler
     {

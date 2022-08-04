@@ -11,7 +11,7 @@ using GameFramework.Sound;
 using Unity.VisualScripting;
 using UnityGameFramework.Runtime;
 
-namespace StarForce
+namespace RCToyCar
 {
     public static class SoundExtension
     {

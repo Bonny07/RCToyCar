@@ -7,7 +7,7 @@
 
 using UnityEngine;
 
-namespace StarForce
+namespace RCToyCar
 {
     public static partial class Constant
     {
