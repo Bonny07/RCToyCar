@@ -10,8 +10,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityGameFramework.Runtime;
 
-namespace StarForce
-{
+  namespace RCToyCar
+  {
     public class HPBarItem : MonoBehaviour
     {
         private const float AnimationSeconds = 0.3f;

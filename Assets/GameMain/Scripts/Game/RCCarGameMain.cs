@@ -5,7 +5,7 @@ using GameFramework;
 using GameFramework.Entity;
 using UnityGameFramework;
 
-namespace StarForce
+namespace RCToyCar
 {
     public class RCCarGameMain : MonoBehaviour
     {

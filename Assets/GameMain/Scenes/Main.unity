@@ -1217,6 +1217,8 @@ GameObject:
   - component: {fileID: 424131391}
   - component: {fileID: 424131390}
   - component: {fileID: 424131389}
+  - component: {fileID: 424131394}
+  - component: {fileID: 424131393}
   - component: {fileID: 424131388}
   - component: {fileID: 424131392}
   m_Layer: 5
@@ -1336,6 +1338,32 @@ MonoBehaviour:
   GameResultWin: {fileID: 878192929}
   GameResultDraw: {fileID: 2099890326}
   GameResultLose: {fileID: 1641861064}
+--- !u!114 &424131393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424131387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14ebfab9f79b0f45bbe3f6fa0a88ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CountDown: 90
+  CountDownText: {fileID: 1121960513}
+--- !u!114 &424131394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424131387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d51e171dba32f49b5b8cc8fa4e1005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &427464603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4265,7 +4293,6 @@ GameObject:
   - component: {fileID: 1461320659}
   - component: {fileID: 1461320658}
   - component: {fileID: 1461320660}
-  - component: {fileID: 1461320661}
   m_Layer: 0
   m_Name: Main Camera 1
   m_TagString: MainCamera
@@ -4365,20 +4392,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1461320661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461320654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f14e8ef7a01bc014a8a7aea9e401b3e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CountDown: 0
-  CountDownText: {fileID: 1121960513}
 --- !u!1001 &1480388551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6190,6 +6203,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 886062417220443729, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726868683398922161, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091886306568774085, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091961167789051559, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092160266912934687, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092694590417988941, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3093373165015207725, guid: af6619b726a01154d95fccd82d747e9c,
         type: 3}
       propertyPath: cam
@@ -6199,6 +6242,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093373165015207726, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3093373165015207727, guid: af6619b726a01154d95fccd82d747e9c,
         type: 3}
@@ -6260,6 +6308,11 @@ PrefabInstance:
       propertyPath: m_Lens.m_SensorSize.x
       value: 1.7777778
       objectReference: {fileID: 0}
+    - target: {fileID: 3093373165043485436, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3093373165043485437, guid: af6619b726a01154d95fccd82d747e9c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6290,15 +6343,20 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.0011521172
       objectReference: {fileID: 0}
+    - target: {fileID: 3093373165131169681, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3093373165131169686, guid: af6619b726a01154d95fccd82d747e9c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0000038146973
+      value: 0.000006198883
       objectReference: {fileID: 0}
     - target: {fileID: 3093373165131169686, guid: af6619b726a01154d95fccd82d747e9c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.000003814698
+      value: -0.0000057220477
       objectReference: {fileID: 0}
     - target: {fileID: 3093373165131169686, guid: af6619b726a01154d95fccd82d747e9c,
         type: 3}
@@ -6324,6 +6382,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
       value: 1.7777778
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093373165242960361, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3093373165242960366, guid: af6619b726a01154d95fccd82d747e9c,
         type: 3}
@@ -6360,6 +6423,31 @@ PrefabInstance:
       propertyPath: m_Lens.m_SensorSize.x
       value: 1.7777778
       objectReference: {fileID: 0}
+    - target: {fileID: 3093373165585804656, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093373166141316233, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093373166339214618, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093373166760703617, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093414902251165677, guid: af6619b726a01154d95fccd82d747e9c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7755996540451564602, guid: af6619b726a01154d95fccd82d747e9c,
         type: 3}
       propertyPath: m_startHealth
@@ -6372,6 +6460,7 @@ PrefabInstance:
       objectReference: {fileID: 100008, guid: 3455fe69f7ddc4604b95bf9b0a1e88d7, type: 3}
     m_RemovedComponents:
     - {fileID: 1883218230346123587, guid: af6619b726a01154d95fccd82d747e9c, type: 3}
+    - {fileID: 3093373165015207731, guid: af6619b726a01154d95fccd82d747e9c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: af6619b726a01154d95fccd82d747e9c, type: 3}
 --- !u!1001 &6426062262416756147
 PrefabInstance:
@@ -6383,13 +6472,18 @@ PrefabInstance:
     - target: {fileID: 6426062261800878272, guid: 4cd506550c82e56479e34388f16ab4c5,
         type: 3}
       propertyPath: patrolSpeed
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6426062261800878272, guid: 4cd506550c82e56479e34388f16ab4c5,
         type: 3}
       propertyPath: patrolWayPoints
       value: 
       objectReference: {fileID: 857054140}
+    - target: {fileID: 6426062261800878273, guid: 4cd506550c82e56479e34388f16ab4c5,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6426062261800878275, guid: 4cd506550c82e56479e34388f16ab4c5,
         type: 3}
       propertyPath: m_RootOrder

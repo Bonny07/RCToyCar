@@ -2,62 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GameFramework;
-using UnityGameFramework;
-using UnityGameFramework.Runtime;
-using GameEntry = StarForce.GameEntry;
+using GameFramework.DataTable;
 
-public class RCCarHealth : MonoBehaviour
+
+namespace RCToyCar
 {
-    public float m_startHealth = 70f;
-    public static float CurrentHealth;
-    private bool m_Dead;   
-    
-    public GameObject m_ExplosionPrefab;       
-    private ParticleSystem m_ExplosionParticles;
-
-
-    private void Awake()
+    public class RCCarHealth : MonoBehaviour
     {
-        m_ExplosionParticles = Instantiate (m_ExplosionPrefab).GetComponent<ParticleSystem> ();
-        m_ExplosionParticles.gameObject.SetActive (false);
-    }
+        public float m_startHealth = 70f;
+        public static float CurrentHealth;
+        private bool m_Dead;
 
-    void Start()
-    {
-        CurrentHealth = m_startHealth;
-    }
+        public GameObject m_ExplosionPrefab;
+        private ParticleSystem m_ExplosionParticles;
 
-    void Update()
-    {
-        if (CurrentHealth <= 0f)
+
+        private void Awake()
         {
-            OnDeath();
+            m_ExplosionParticles = Instantiate(m_ExplosionPrefab).GetComponent<ParticleSystem>();
+            m_ExplosionParticles.gameObject.SetActive(false);
         }
-    }
 
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
+        void Start()
         {
-            CurrentHealth -= 25f;
+
+            CurrentHealth = m_startHealth;
         }
-        if (collision.gameObject.CompareTag("Missile"))
+
+        void Update()
         {
-            CurrentHealth -= 200f;
+            if (CurrentHealth <= 0f)
+            {
+                OnDeath();
+            }
         }
-    }
 
-    public void Recover()
-    {
-        CurrentHealth += 20f;
-    }
 
-    private void OnDeath()
-    {
-        m_ExplosionParticles.transform.position = transform.position;
-        m_ExplosionParticles.gameObject.SetActive (true);
-        m_ExplosionParticles.Play ();
-        gameObject.SetActive (false);
+        void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                CurrentHealth -= 25f;
+            }
+
+            if (collision.gameObject.CompareTag("Missile"))
+            {
+                CurrentHealth -= 200f;
+            }
+        }
+
+        public void Recover()
+        {
+            CurrentHealth += 20f;
+        }
+
+        private void OnDeath()
+        {
+            m_ExplosionParticles.transform.position = transform.position;
+            m_ExplosionParticles.gameObject.SetActive(true);
+            m_ExplosionParticles.Play();
+            gameObject.SetActive(false);
+        }
     }
 }

@@ -2,7 +2,7 @@ using GameFramework;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-namespace StarForce
+namespace RCToyCar
 {
     public class CarHealth : Entity
     {

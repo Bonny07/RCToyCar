@@ -9,7 +9,7 @@ using GameFramework.DataTable;
 using System;
 using UnityGameFramework.Runtime;
 
-namespace StarForce
+namespace RCToyCar
 {
     public static class EntityExtension
     {

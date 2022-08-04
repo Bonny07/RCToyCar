@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace StarForce
+namespace RCToyCar
 {
     public class UpdateResourceForm : MonoBehaviour
     {

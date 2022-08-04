@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
-namespace StarForce
+namespace RCToyCar
 {
     /// <summary>
     /// 游戏模式。
@@ -15,7 +15,7 @@ namespace StarForce
         /// <summary>
         /// 生存模式。
         /// </summary>
-        Survival,
+        ///Survival,
         /// <summary>
         /// 机器人对战模式
         /// </summary>

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameFramework.DataTable;
 using System;
-using StarForce;
 using UnityEditor;
 
-namespace MyNamespace
+namespace RCToyCar
 {
 
     /*[Serializable]

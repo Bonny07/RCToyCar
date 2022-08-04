@@ -7,7 +7,7 @@
 
 using UnityEngine;
 
-namespace StarForce
+namespace RCToyCar
 {
     public class ScrollableBackground : MonoBehaviour
     {
