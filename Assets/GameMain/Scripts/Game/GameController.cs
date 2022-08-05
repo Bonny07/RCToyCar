@@ -11,6 +11,7 @@ namespace RCToyCar
         public static float GameResultPlay;
 
 
+
         void Start()
         {
             GameResultNum = 0;

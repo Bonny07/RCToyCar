@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameFramework;
 using GameFramework.DataTable;
+using UnityEngine.UIElements;
 
 
 namespace RCToyCar
@@ -15,6 +16,7 @@ namespace RCToyCar
 
         public GameObject m_ExplosionPrefab;
         private ParticleSystem m_ExplosionParticles;
+
 
 
         private void Awake()
@@ -31,6 +33,7 @@ namespace RCToyCar
 
         void Update()
         {
+
             if (CurrentHealth <= 0f)
             {
                 OnDeath();
@@ -41,14 +44,28 @@ namespace RCToyCar
         void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag("Enemy"))
-            {
-                CurrentHealth -= 25f;
+            {            
+                if (PlayerSkill.ShieldActive != 0)
+                {
+                    PlayerSkill.ShieldActive--;
+                }
+                else
+                {
+                    CurrentHealth -= 25f;
+                }
             }
-
             if (collision.gameObject.CompareTag("Missile"))
             {
-                CurrentHealth -= 200f;
+                if (PlayerSkill.ShieldActive != 0)
+                {
+                    PlayerSkill.ShieldActive--;
+                }
+                else
+                {
+                    CurrentHealth -= 200f;
+                }
             }
+            
         }
 
         public void Recover()
