@@ -11,6 +11,7 @@ namespace RCToyCar
         public TextMeshProUGUI CountDownText;
         public static int TimeisUp; //游戏时间是否结束
 
+
         void Start()
         {
             CountDown = 90f;

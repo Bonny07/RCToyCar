@@ -17,7 +17,7 @@ namespace RCToyCar
             SpeedUp, //加速
             Missile, //导弹
             Type5
-        }; // you can replace this with your own labels for the types of collectibles in your game!
+        };
 
         public CollectibleTypes CollectibleType; // this gameObject's type
 
@@ -28,12 +28,15 @@ namespace RCToyCar
         public AudioClip collectSound;
 
         public GameObject collectEffect;
+        
 
 
         void Update()
         {
             if (rotate)
+            {
                 transform.Rotate(Vector3.up * (rotationSpeed * Time.deltaTime), Space.World);
+            }
 
         }
 
@@ -47,6 +50,10 @@ namespace RCToyCar
 
         public void Collect()
         {
+            if (collectSound)
+            {
+                AudioSource.PlayClipAtPoint(collectSound, transform.position);
+            }
             //Below is space to add in your code for what happens based on the collectible type
 
             if (CollectibleType == CollectibleTypes.None)
@@ -59,10 +66,10 @@ namespace RCToyCar
             if (CollectibleType == CollectibleTypes.HealthRecover)
             {
                 //TYPE 1  工具箱  回复20生命
+
                 RCCarHealth.CurrentHealth += 20;
                 collectitem();
                 Destroy(gameObject);
-
                 Debug.Log("拾取工具箱");
             }
 
@@ -72,7 +79,6 @@ namespace RCToyCar
                 {
                     //TYPE 2  护盾     使用时50%免伤2秒
                     collectitem();
-
                     PlayerSkill.Shield++;
                     Destroy(gameObject);
 
@@ -127,6 +133,7 @@ namespace RCToyCar
             if (collectEffect)
                 Instantiate(collectEffect, transform.position, Quaternion.identity);
         }
+
 
     }
 
