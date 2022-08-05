@@ -28,6 +28,7 @@ namespace RCToyCar
             if (CountDown <= 0f || GameController.GameResultNum != 0)
             {
                 TimeisUp = 1;
+                CountDown += Time.deltaTime;
             }
         }
     }

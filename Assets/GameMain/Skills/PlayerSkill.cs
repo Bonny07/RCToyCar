@@ -13,6 +13,10 @@ namespace RCToyCar
         void Update()
         {
             skillpush();
+            if (GameController.GameResultPlay != 0f)
+            {
+                Invoke("SkillClear", 3f);
+            }
         }
 
         public void skillpush()
@@ -42,12 +46,19 @@ namespace RCToyCar
             }
             //使用导弹道具
         }
-
         //玩家道具存储统计
         void SpeedUp()
         {
             Movement.speed = 6;
         }
+        //加速效果
+        void SkillClear()
+        {
+            Missile = 0;
+            Speedup = 0;
+            Shield = 0;
+        }
+        //游戏结束，清空玩家技能
     }
 }
 
