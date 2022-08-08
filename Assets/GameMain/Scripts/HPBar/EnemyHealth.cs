@@ -1,15 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
+using GameFramework.DataTable;
 using UnityEngine;
 
 namespace RCToyCar
 {
     public class EnemyHealth : MonoBehaviour
     {
-        public float m_startHealth = 70f;
         public static float CurrentHealth;
         private bool m_Dead;
         private Rigidbody m_MissileBody;
+        private float CarAttackDamage;
 
         public GameObject m_ExplosionPrefab;
         private ParticleSystem m_ExplosionParticles;
@@ -22,7 +22,7 @@ namespace RCToyCar
 
         void Start()
         {
-            CurrentHealth = m_startHealth;
+            CarDataOnLoad();
         }
 
         void Update()
@@ -32,18 +32,17 @@ namespace RCToyCar
                 OnDeath();
             }
         }
-
-
+        
         void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                CurrentHealth -= 25f;
+                CurrentHealth -= CarAttackDamage;
             }
 
             if (collision.gameObject.CompareTag("Missile"))
             {
-                CurrentHealth -= 200f;
+                CurrentHealth -= PlayerSkill.MissileAttackDamage;
             }
         }
 
@@ -54,7 +53,7 @@ namespace RCToyCar
 
         public void Recover()
         {
-            CurrentHealth += 20f;
+            CurrentHealth += PlayerSkill.HealingHP;
         }
 
         private void OnDeath()
@@ -63,6 +62,18 @@ namespace RCToyCar
             m_ExplosionParticles.gameObject.SetActive(true);
             m_ExplosionParticles.Play();
             gameObject.SetActive(false);
+        }
+
+        void CarDataOnLoad()
+        {
+            IDataTable<DRRCToyCar> dtCarData = GameEntry.DataTable.GetDataTable<DRRCToyCar>();
+            DRRCToyCar drCarData = dtCarData.GetDataRow(10001);
+            if (drCarData == null)
+            {
+                return;
+            }
+            CurrentHealth = drCarData.MaxHP;
+            CarAttackDamage = drCarData.CarAttackDamage;
         }
 
     }

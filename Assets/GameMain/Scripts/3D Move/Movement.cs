@@ -1,34 +1,29 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Security.Cryptography;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityGameFramework.Runtime;
+using GameFramework.DataTable;
 
 namespace RCToyCar
 {
     public class Movement : MonoBehaviour
     {
-        public Transform cam;
-
-        public static float speed = 8; //玩家移动速度倍率
         Vector3 m_Velocity;
         float m_TurnSmoothVelocity;
+        
+        public Transform cam;
         public float turnSmoothTime = 0.1f; //玩家模型转向顺滑度
+        public AudioClip HitSound;
+
         private Rigidbody m_Rigidbody;
         private bool isCrashing; //玩家是否处于被撞后的眩晕状态
         private float targetAngle;
-        
-        public AudioClip HitSound;
-        public AudioClip DrivinSound;
-
+        public static float CarSpeed;
+        public static float StartCarSpeed;
 
         private void Start()
         {
             m_Rigidbody = GetComponent<Rigidbody>();
+            SpeedOnLoad();
+            CarSpeed = StartCarSpeed;
         }
 
         private void Update()
@@ -54,14 +49,14 @@ namespace RCToyCar
             if (Input.GetKey(KeyCode.W) && isCrashing == false || Input.GetKey(KeyCode.A) && isCrashing == false ||
                 Input.GetKey(KeyCode.S) && isCrashing == false || Input.GetKey(KeyCode.D) && isCrashing == false)
             {
-                Vector3 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward * speed * 0.01f;
+                Vector3 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward * CarSpeed * 0.01f;
                 m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
             }
             //玩家移动
 
             if (isCrashing == true)
             {
-                Vector3 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward * speed * (-0.03f);
+                Vector3 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward * CarSpeed * (-0.02f);
                 m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
             }
             //玩家碰撞敌方后被击退
@@ -81,6 +76,17 @@ namespace RCToyCar
         void KnockBack()
         {
             isCrashing = false;
+        }
+
+        void SpeedOnLoad()
+        {
+            IDataTable<DRRCToyCar> dtSpeed = GameEntry.DataTable.GetDataTable<DRRCToyCar>();
+            DRRCToyCar drCarSpeed = dtSpeed.GetDataRow(10000);
+            if (drCarSpeed == null)
+            {
+                return;
+            }
+            StartCarSpeed = drCarSpeed.Speed;
         }
     }
 }

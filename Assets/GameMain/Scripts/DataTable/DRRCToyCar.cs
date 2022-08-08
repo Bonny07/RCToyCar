@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2022-08-08 17:10:04.051
+// 生成时间：2022-08-08 17:10:04.055
 //------------------------------------------------------------
 
 using GameFramework;
@@ -19,14 +19,14 @@ using UnityGameFramework.Runtime;
 namespace RCToyCar
 {
     /// <summary>
-    /// 声音配置表。
+    /// 小车属性表。
     /// </summary>
-    public class DRUISound : DataRowBase
+    public class DRRCToyCar : DataRowBase
     {
         private int m_Id = 0;
 
         /// <summary>
-        /// 获取声音编号。
+        /// 获取小车编号。
         /// </summary>
         public override int Id
         {
@@ -37,27 +37,36 @@ namespace RCToyCar
         }
 
         /// <summary>
-        /// 获取资源名称。
+        /// 获取血量。
         /// </summary>
-        public string AssetName
+        public float MaxHP
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取优先级（默认0，128最高，-128最低）。
+        /// 获取速度(玩家敌人标准不同）。
         /// </summary>
-        public int Priority
+        public float Speed
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取音量（0~1）。
+        /// 获取普通攻击伤害。
         /// </summary>
-        public float Volume
+        public float CarAttackDamage
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取道具存储上限制。
+        /// </summary>
+        public int PropStorage
         {
             get;
             private set;
@@ -75,9 +84,10 @@ namespace RCToyCar
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
-            AssetName = columnStrings[index++];
-            Priority = int.Parse(columnStrings[index++]);
-            Volume = float.Parse(columnStrings[index++]);
+            MaxHP = float.Parse(columnStrings[index++]);
+            Speed = float.Parse(columnStrings[index++]);
+            CarAttackDamage = float.Parse(columnStrings[index++]);
+            PropStorage = int.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -90,9 +100,10 @@ namespace RCToyCar
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    AssetName = binaryReader.ReadString();
-                    Priority = binaryReader.Read7BitEncodedInt32();
-                    Volume = binaryReader.ReadSingle();
+                    MaxHP = binaryReader.ReadSingle();
+                    Speed = binaryReader.ReadSingle();
+                    CarAttackDamage = binaryReader.ReadSingle();
+                    PropStorage = binaryReader.Read7BitEncodedInt32();
                 }
             }
 

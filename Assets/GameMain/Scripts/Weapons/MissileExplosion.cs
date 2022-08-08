@@ -7,14 +7,13 @@ namespace RCToyCar
 {
     public class MissileExplosion : MonoBehaviour
     {
-        public float m_MaxLifeTime = 5f;
         private ParticleSystem m_ExplosionParticles;
         public GameObject m_ExplosionPrefab;
 
         // Start is called before the first frame update
         void Start()
         {
-            Destroy(gameObject, m_MaxLifeTime);
+            Destroy(gameObject, PlayerSkill.MissileLastTime);
         }
 
         private void Awake()
