@@ -46,17 +46,17 @@ namespace RCToyCar
                 SkillMissile.SetActive(false);
             }
 
-            if (GameController.GameResultPlay == 1f)
+            if (GameManager.GameResultPlay == 1f)
             {
                 GameResultWin.SetActive(true);
             }
 
-            if (GameController.GameResultPlay == 2f)
+            if (GameManager.GameResultPlay == 2f)
             {
                 GameResultDraw.SetActive(true);
             }
 
-            if (GameController.GameResultPlay == 3f)
+            if (GameManager.GameResultPlay == 3f)
             {
                 GameResultLose.SetActive(true);
             }

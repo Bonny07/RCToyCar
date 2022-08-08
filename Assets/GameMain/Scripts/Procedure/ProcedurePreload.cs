@@ -30,6 +30,8 @@ namespace RCToyCar
             "UIForm",
             "UISound",
             "Weapon",
+            "RCToyCar",
+            "Properties",
             
         };
 

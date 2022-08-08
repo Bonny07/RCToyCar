@@ -22,7 +22,7 @@ namespace RCToyCar
         
         void BGMContinue()
         {
-            if (GameController.GameResultNum != 0f)
+            if (GameManager.GameResultNum != 0f)
             {
                 BGM.SetActive(false);
             }

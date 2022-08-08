@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,10 @@ namespace RCToyCar
         public float nextSpawn = 1f;
         public int r;
 
+        private void Start()
+        {
+            
+        }
 
         void Update()
         {
@@ -48,5 +53,7 @@ namespace RCToyCar
                 }
             }
         }
+
+
     }
 }

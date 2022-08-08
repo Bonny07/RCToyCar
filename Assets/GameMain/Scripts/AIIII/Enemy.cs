@@ -1,29 +1,29 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using GameFramework.DataTable;
 
 namespace RCToyCar
 {
     public class Enemy : MonoBehaviour
     {
-        public float patrolSpeed = 8f;
         public float patrolWaitTime = 0.5f;
         public Transform patrolWayPoints;
-        private int pointnum;
-
         public static NavMeshAgent m_Agent;
-        private float m_PatrolTimer = 0;
-        private int m_WayPointIndex = 0;
+        
+        private float m_PatrolTimer;
+        private int m_WayPointIndex;
+        private int pointnum;
+        private float CarSpeed;
 
 
         void Start()
         {
+            SpeedOnLoad();
             m_Agent = GetComponent<NavMeshAgent>();
             m_Agent.destination = patrolWayPoints.GetChild(m_WayPointIndex).position;
             m_Agent.isStopped = false;
-            m_Agent.speed = patrolSpeed;
+            m_Agent.speed = CarSpeed;
             pointnum = patrolWayPoints.childCount;
         }
 
@@ -64,6 +64,17 @@ namespace RCToyCar
             }
 
             return r;
+        }
+        
+        void SpeedOnLoad()
+        {
+            IDataTable<DRRCToyCar> dtSpeed = GameEntry.DataTable.GetDataTable<DRRCToyCar>();
+            DRRCToyCar drCarSpeed = dtSpeed.GetDataRow(10001);
+            if (drCarSpeed == null)
+            {
+                return;
+            }
+            CarSpeed = drCarSpeed.Speed;
         }
     }
 }

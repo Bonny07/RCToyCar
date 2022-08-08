@@ -26,7 +26,7 @@ namespace RCToyCar
         }
         void GameTimer()
         {
-            if (CountDown <= 0f || GameController.GameResultNum != 0)
+            if (CountDown <= 0f || GameManager.GameResultNum != 0)
             {
                 TimeisUp = 1;
                 CountDown += Time.deltaTime;

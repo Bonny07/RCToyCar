@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2022-08-08 17:10:04.051
+// 生成时间：2022-08-08 17:10:04.057
 //------------------------------------------------------------
 
 using GameFramework;
@@ -19,14 +19,14 @@ using UnityGameFramework.Runtime;
 namespace RCToyCar
 {
     /// <summary>
-    /// 声音配置表。
+    /// 道具表。
     /// </summary>
-    public class DRUISound : DataRowBase
+    public class DRProperties : DataRowBase
     {
         private int m_Id = 0;
 
         /// <summary>
-        /// 获取声音编号。
+        /// 获取道具编号。
         /// </summary>
         public override int Id
         {
@@ -37,27 +37,54 @@ namespace RCToyCar
         }
 
         /// <summary>
-        /// 获取资源名称。
+        /// 获取回复血量。
         /// </summary>
-        public string AssetName
+        public float Healing
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取优先级（默认0，128最高，-128最低）。
+        /// 获取抵挡伤害次数。
         /// </summary>
-        public int Priority
+        public float PreventDamageTime
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取音量（0~1）。
+        /// 获取移速倍率。
         /// </summary>
-        public float Volume
+        public float AddSpeed
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取导弹伤害。
+        /// </summary>
+        public float MissileDamage
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取持续时间。
+        /// </summary>
+        public float LastTime
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取飞行速度。
+        /// </summary>
+        public float MissileSpeed
         {
             get;
             private set;
@@ -75,9 +102,12 @@ namespace RCToyCar
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
-            AssetName = columnStrings[index++];
-            Priority = int.Parse(columnStrings[index++]);
-            Volume = float.Parse(columnStrings[index++]);
+            Healing = float.Parse(columnStrings[index++]);
+            PreventDamageTime = float.Parse(columnStrings[index++]);
+            AddSpeed = float.Parse(columnStrings[index++]);
+            MissileDamage = float.Parse(columnStrings[index++]);
+            LastTime = float.Parse(columnStrings[index++]);
+            MissileSpeed = float.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -90,9 +120,12 @@ namespace RCToyCar
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    AssetName = binaryReader.ReadString();
-                    Priority = binaryReader.Read7BitEncodedInt32();
-                    Volume = binaryReader.ReadSingle();
+                    Healing = binaryReader.ReadSingle();
+                    PreventDamageTime = binaryReader.ReadSingle();
+                    AddSpeed = binaryReader.ReadSingle();
+                    MissileDamage = binaryReader.ReadSingle();
+                    LastTime = binaryReader.ReadSingle();
+                    MissileSpeed = binaryReader.ReadSingle();
                 }
             }
 

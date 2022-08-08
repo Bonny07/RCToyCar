@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
 using UnityEngine.Animations;
-using UnityEngine.EventSystems;
+using GameFramework.DataTable;
 
 namespace RCToyCar
 {
@@ -19,16 +20,19 @@ namespace RCToyCar
             Type5
         };
 
-        public CollectibleTypes CollectibleType; // this gameObject's type
+        public CollectibleTypes CollectibleType;  //道具属性
+        public bool rotate;  //是否旋转
+        public float rotationSpeed;  //旋转速度
+        public AudioClip collectSound;  //播放拾取道具声音
+        public GameObject collectEffect;  //获取道具效果
 
-        public bool rotate; // do you want it to rotate?
+        private int PlayerMaxPropStorage;
+        private int EnemyMaxPropStorage;
 
-        public float rotationSpeed;
-
-        public AudioClip collectSound;
-
-        public GameObject collectEffect;
-        
+        private void Start()
+        {
+            PropOnLoad();
+        }
 
 
         void Update()
@@ -67,13 +71,13 @@ namespace RCToyCar
             {
                 //TYPE 1  工具箱  回复20生命
 
-                RCCarHealth.CurrentHealth += 20;
+                RCCarHealth.CurrentHealth += PlayerSkill.HealingHP;
                 collectitem();
                 Destroy(gameObject);
                 Debug.Log("拾取工具箱");
             }
 
-            if (PlayerSkill.Shield == 0)
+            if (PlayerSkill.Shield < PlayerMaxPropStorage)
             {
                 if (CollectibleType == CollectibleTypes.Shield)
                 {
@@ -87,7 +91,7 @@ namespace RCToyCar
                 }
             }
 
-            if (PlayerSkill.Speedup == 0)
+            if (PlayerSkill.Speedup < PlayerMaxPropStorage)
             {
                 if (CollectibleType == CollectibleTypes.SpeedUp)
                 {
@@ -102,7 +106,7 @@ namespace RCToyCar
                 }
             }
 
-            if (PlayerSkill.Missile == 0)
+            if (PlayerSkill.Missile < PlayerMaxPropStorage)
             {
                 if (CollectibleType == CollectibleTypes.Missile)
                 {
@@ -133,8 +137,23 @@ namespace RCToyCar
             if (collectEffect)
                 Instantiate(collectEffect, transform.position, Quaternion.identity);
         }
+        
+        void PropOnLoad()
+        {
+            IDataTable<DRRCToyCar> dtProperties = GameEntry.DataTable.GetDataTable<DRRCToyCar>();
+            DRRCToyCar drPlayerStorage = dtProperties.GetDataRow(10000);
+            DRRCToyCar drEnemyStorage = dtProperties.GetDataRow(10001);
+            if (drPlayerStorage == null || drEnemyStorage == null)
+            {
+                return;
+            }
+
+            PlayerMaxPropStorage = drPlayerStorage.PropStorage;
+            EnemyMaxPropStorage = drEnemyStorage.PropStorage;
 
 
+        }
+        //道具数据加载
     }
 
 }

@@ -55,7 +55,7 @@ namespace RCToyCar
 
         public virtual void Update(float elapseSeconds, float realElapseSeconds)
         {
-            if (GameController.GameResultPlay != 0f)
+            if (GameManager.GameResultPlay != 0f)
             {
                 GameOver = true;
                 return;
