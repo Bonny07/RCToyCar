@@ -156,7 +156,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 7053957060446350405}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.16558519
   m_Height: 0.9253192
   m_Direction: 1
@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 5460647537083961037}
   - component: {fileID: 54706524955057110}
   - component: {fileID: 7684477919063500755}
+  - component: {fileID: 1466189548053367648}
   m_Layer: 0
   m_Name: MissileRigid
   m_TagString: Missile
@@ -223,5 +224,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49558db65056ad148b4a2cecf530f531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxLifeTime: 5
   m_ExplosionPrefab: {fileID: 151086, guid: 6bc6d0dd8b8428e4ca316513f2cf13c6, type: 3}
+--- !u!136 &1466189548053367648
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054430221025574826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.1655852
+  m_Height: 0.9253192
+  m_Direction: 2
+  m_Center: {x: -0.00000001490116, y: 0.008582592, z: 1.094369e-17}

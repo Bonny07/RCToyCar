@@ -37,24 +37,30 @@ namespace RCToyCar
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                CurrentHealth -= CarAttackDamage;
+                if (EnemySkill.ShieldActive1 != 0)
+                {
+                    EnemySkill.ShieldActive1--;
+                }
+                else
+                {
+                    CurrentHealth -= CarAttackDamage;
+                }
             }
 
+            /*
             if (collision.gameObject.CompareTag("Missile"))
             {
-                CurrentHealth -= PlayerSkill.MissileAttackDamage;
-            }
+                if (EnemySkill.ShieldActive != 0)
+                {
+                    EnemySkill.ShieldActive--;
+                }
+                else
+                {
+                    CurrentHealth -= PlayerSkill.MissileAttackDamage;
+                }
+            }*/
         }
 
-        public void OnKilled()
-        {
-            OnDeath();
-        }
-
-        public void Recover()
-        {
-            CurrentHealth += PlayerSkill.HealingHP;
-        }
 
         private void OnDeath()
         {
@@ -62,8 +68,14 @@ namespace RCToyCar
             m_ExplosionParticles.gameObject.SetActive(true);
             m_ExplosionParticles.Play();
             gameObject.SetActive(false);
+            /*Invoke("Destroy", 1);*/
         }
 
+        void Destroy()
+        {
+            Destroy(gameObject);
+        }
+        
         void CarDataOnLoad()
         {
             IDataTable<DRRCToyCar> dtCarData = GameEntry.DataTable.GetDataTable<DRRCToyCar>();

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using GameFramework.DataTable;
 
@@ -8,7 +7,7 @@ namespace RCToyCar
     {
         Vector3 m_Velocity;
         float m_TurnSmoothVelocity;
-        
+
         public Transform cam;
         public float turnSmoothTime = 0.1f; //玩家模型转向顺滑度
         public AudioClip HitSound;
@@ -32,7 +31,7 @@ namespace RCToyCar
             float vertical = Input.GetAxisRaw("Vertical");
             Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-            
+
             if (direction.magnitude >= 0.1f)
             {
                 targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
@@ -40,7 +39,6 @@ namespace RCToyCar
                     turnSmoothTime);
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
             }
-
         }
         //玩家人物移动，镜头控制人物移动方向
 
@@ -54,7 +52,7 @@ namespace RCToyCar
             }
             //玩家移动
 
-            if (isCrashing == true)
+            if (isCrashing)
             {
                 Vector3 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward * CarSpeed * (-0.02f);
                 m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
@@ -64,7 +62,7 @@ namespace RCToyCar
 
         void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.CompareTag("Enemy"))
+            if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall")) && !isCrashing)
             {
                 isCrashing = true;
                 AudioSource.PlayClipAtPoint(HitSound, transform.position);
@@ -86,6 +84,7 @@ namespace RCToyCar
             {
                 return;
             }
+
             StartCarSpeed = drCarSpeed.Speed;
         }
     }

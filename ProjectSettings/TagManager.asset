@@ -10,6 +10,8 @@ TagManager:
   - Missile
   - RepairKit
   - Prop
+  - Laser
+  - Wall
   layers:
   - Default
   - TransparentFX

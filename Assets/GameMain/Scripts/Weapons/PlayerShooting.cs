@@ -15,9 +15,6 @@ namespace RCToyCar
             private string m_FireButton;
             private bool m_Fired;
 
-            void Start()
-            {
-            }
             
             void Update()
             {
@@ -30,7 +27,7 @@ namespace RCToyCar
 
             private void Fire()
             {
-                Rigidbody shellInstance = Instantiate(m_missile, m_FireTransform.position, m_FireTransform.rotation) as Rigidbody;
+                Rigidbody shellInstance = Instantiate(m_missile, m_FireTransform.position, m_FireTransform.rotation);
                 shellInstance.velocity = PlayerSkill.MissileFlySpeed * m_FireTransform.forward;
                 Debug.Log("释放导弹");
             }
