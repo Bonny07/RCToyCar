@@ -93,18 +93,20 @@ namespace RCToyCar
         {
             // Preload configs
             LoadConfig("DefaultConfig");
-
+            Debug.Log("000000000000");
             // Preload data tables
             foreach (string dataTableName in DataTableNames)
             {
                 LoadDataTable(dataTableName);
             }
 
+            Debug.Log("1111111111111");
             // Preload dictionaries
             LoadDictionary("Default");
-
+            Debug.Log("2222222222222");
             // Preload fonts
             LoadFont("Poppins-Bold");
+            Debug.Log("3333333333333");
         }
 
         private void LoadConfig(string configName)
