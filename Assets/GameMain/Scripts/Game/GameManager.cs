@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RCToyCar
@@ -8,8 +6,6 @@ namespace RCToyCar
     {
         public static int GameResultNum; //游戏胜负判断
         public static float GameResultPlay;  //游戏胜负播报
-        public GameObject m_PlayerCarPrefab;  //玩家小车预制体
-        public GameObject m_EnemyCarPrefab;  //敌人小车预制体
         
         void Start()
         {
@@ -17,11 +13,13 @@ namespace RCToyCar
             GameResultPlay = 0f;
         }
         
+
+        
         void Update()
         {
             GameJudge();        //游戏胜负判断
         }
-        
+
 
         void GameJudge()
         {

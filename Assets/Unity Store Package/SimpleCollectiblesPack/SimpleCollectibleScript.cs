@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Timers;
-using UnityEngine;
-using UnityEngine.Animations;
+﻿using UnityEngine;
 using GameFramework.DataTable;
 
 namespace RCToyCar
@@ -46,13 +41,17 @@ namespace RCToyCar
 
         void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player") || other.CompareTag("Enemy"))
+            if (other.CompareTag("Player"))
             {
-                Collect();
+                PlayerCollect();
+            }
+            if (other.CompareTag("Enemy"))
+            {
+                EnemyCollect();
             }
         }
 
-        public void Collect()
+        public void PlayerCollect()
         {
             if (collectSound)
             {
@@ -74,7 +73,7 @@ namespace RCToyCar
                 RCCarHealth.CurrentHealth += PlayerSkill.HealingHP;
                 collectitem();
                 Destroy(gameObject);
-                Debug.Log("拾取工具箱");
+                Debug.Log("玩家拾取工具箱");
             }
 
             if (PlayerSkill.Shield < PlayerMaxPropStorage)
@@ -87,7 +86,7 @@ namespace RCToyCar
                     Destroy(gameObject);
 
 
-                    Debug.Log("拾取护盾");
+                    Debug.Log("玩家拾取护盾");
                 }
             }
 
@@ -102,7 +101,7 @@ namespace RCToyCar
                     Destroy(gameObject);
 
 
-                    Debug.Log("拾取加速");
+                    Debug.Log("玩家拾取加速");
                 }
             }
 
@@ -115,19 +114,86 @@ namespace RCToyCar
                     PlayerSkill.Missile++;
                     Destroy(gameObject);
 
-
-                    Debug.Log("拾取导弹");
+                    Debug.Log("玩家拾取导弹");
                 }
             }
 
             if (CollectibleType == CollectibleTypes.Type5)
             {
                 //Add in code here;
+                Debug.Log("Do NoType Command");
+            }
+        }
+        
+        public void EnemyCollect()
+        {
+            if (collectSound)
+            {
+                AudioSource.PlayClipAtPoint(collectSound, transform.position);
+            }
+
+            if (CollectibleType == CollectibleTypes.None)
+            {
+                //Add in code here;
 
                 Debug.Log("Do NoType Command");
             }
 
+            if (CollectibleType == CollectibleTypes.HealthRecover)
+            {
+                //TYPE 1  工具箱  回复20生命
 
+                EnemyHealth.CurrentHealth += PlayerSkill.HealingHP;
+                collectitem();
+                Destroy(gameObject);
+                Debug.Log("敌人拾取工具箱");
+            }
+
+            if (EnemySkill.Shield < EnemyMaxPropStorage)
+            {
+                if (CollectibleType == CollectibleTypes.Shield)
+                {
+                    //TYPE 2  护盾     使用时50%免伤2秒
+                    EnemySkill.skillnum = 1;
+                    collectitem();
+                    EnemySkill.Shield++;
+                    Destroy(gameObject);
+                    Debug.Log("敌人拾取护盾");
+                }
+            }
+
+            if (EnemySkill.Speedup < EnemyMaxPropStorage)
+            {
+                if (CollectibleType == CollectibleTypes.SpeedUp)
+                {
+                    //加速     使用时增加50%速度1秒
+                    EnemySkill.skillnum = 1;
+                    collectitem();
+                    EnemySkill.Speedup++;
+                    Destroy(gameObject);
+                    
+                    Debug.Log("敌人拾取加速");
+                }
+            }
+
+            if (EnemySkill.Missile < EnemyMaxPropStorage)
+            {
+                if (CollectibleType == CollectibleTypes.Missile)
+                {
+                    //敌人发射一颗子弹
+                    EnemySkill.skillnum = 1;
+                    collectitem();
+                    EnemySkill.Missile++;
+                    Destroy(gameObject);
+                    Debug.Log("敌人拾取导弹");
+                }
+            }
+
+            if (CollectibleType == CollectibleTypes.Type5)
+            {
+                //Add in code here;
+                Debug.Log("Do NoType Command");
+            }
         }
 
         public void collectitem()
@@ -150,8 +216,6 @@ namespace RCToyCar
 
             PlayerMaxPropStorage = drPlayerStorage.PropStorage;
             EnemyMaxPropStorage = drEnemyStorage.PropStorage;
-
-
         }
         //道具数据加载
     }

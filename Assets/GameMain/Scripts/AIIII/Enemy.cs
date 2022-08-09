@@ -10,11 +10,12 @@ namespace RCToyCar
         public float patrolWaitTime = 0.5f;
         public Transform patrolWayPoints;
         public static NavMeshAgent m_Agent;
+        public static float StartCarSpeed;
         
         private float m_PatrolTimer;
         private int m_WayPointIndex;
         private int pointnum;
-        private float CarSpeed;
+
 
 
         void Start()
@@ -23,7 +24,7 @@ namespace RCToyCar
             m_Agent = GetComponent<NavMeshAgent>();
             m_Agent.destination = patrolWayPoints.GetChild(m_WayPointIndex).position;
             m_Agent.isStopped = false;
-            m_Agent.speed = CarSpeed;
+            m_Agent.speed = StartCarSpeed;
             pointnum = patrolWayPoints.childCount;
         }
 
@@ -74,7 +75,7 @@ namespace RCToyCar
             {
                 return;
             }
-            CarSpeed = drCarSpeed.Speed;
+            StartCarSpeed = drCarSpeed.Speed;
         }
     }
 }

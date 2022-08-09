@@ -63,10 +63,6 @@ namespace RCToyCar
             
         }
 
-        public void Recover()
-        {
-            CurrentHealth += PlayerSkill.HealingHP;
-        }
 
         void OnDeath()
         {
@@ -74,6 +70,12 @@ namespace RCToyCar
             m_ExplosionParticles.gameObject.SetActive(true);
             m_ExplosionParticles.Play();
             gameObject.SetActive(false);
+            /*Invoke("Destroy", 1);*/
+        }
+
+        void Destroy()
+        {
+            Destroy(gameObject);
         }
 
         void CarDataOnLoad()

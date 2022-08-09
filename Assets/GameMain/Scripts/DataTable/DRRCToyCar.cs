@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2022-08-08 17:10:04.055
+// 生成时间：2022-08-09 20:13:07.217
 //------------------------------------------------------------
 
 using GameFramework;
@@ -72,6 +72,15 @@ namespace RCToyCar
             private set;
         }
 
+        /// <summary>
+        /// 获取敌人道具释放时间（1，最大值-1）。
+        /// </summary>
+        public float SkillRange
+        {
+            get;
+            private set;
+        }
+
         public override bool ParseDataRow(string dataRowString, object userData)
         {
             string[] columnStrings = dataRowString.Split(DataTableExtension.DataSplitSeparators);
@@ -88,6 +97,7 @@ namespace RCToyCar
             Speed = float.Parse(columnStrings[index++]);
             CarAttackDamage = float.Parse(columnStrings[index++]);
             PropStorage = int.Parse(columnStrings[index++]);
+            SkillRange = float.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -104,6 +114,7 @@ namespace RCToyCar
                     Speed = binaryReader.ReadSingle();
                     CarAttackDamage = binaryReader.ReadSingle();
                     PropStorage = binaryReader.Read7BitEncodedInt32();
+                    SkillRange = binaryReader.ReadSingle();
                 }
             }
 
