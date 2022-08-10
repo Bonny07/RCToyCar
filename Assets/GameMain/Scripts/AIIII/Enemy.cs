@@ -9,17 +9,22 @@ namespace RCToyCar
     {
         public float patrolWaitTime = 0.5f;
         public Transform patrolWayPoints;
-        public static NavMeshAgent m_Agent;
-        public static float StartCarSpeed;
+        public static NavMeshAgent m_Agent;  //存储游戏进行时敌人小车速度
+        public static float StartCarSpeed;  //存储敌人小车常规速度
+        public AudioClip HitSound;  //播放撞击音效
         
+        private Rigidbody m_Rigidbody;
         private float m_PatrolTimer;
         private int m_WayPointIndex;
-        private int pointnum;
+        private int pointnum;  //定义路径点
+        
+        private bool isCrashing1=false; //是否处于被撞后的眩晕状态
 
 
 
         void Start()
         {
+            m_Rigidbody = GetComponent<Rigidbody>();
             SpeedOnLoad();
             m_Agent = GetComponent<NavMeshAgent>();
             m_Agent.destination = patrolWayPoints.GetChild(m_WayPointIndex).position;
@@ -30,7 +35,14 @@ namespace RCToyCar
 
         void Update()
         {
-            Patrolling();
+            if (isCrashing1)
+            {
+                Vector3 movement = Vector3.right * StartCarSpeed * (-0.04f);
+                m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
+            }
+
+                Patrolling();
+            
         }
 
         /// <summary>
@@ -38,7 +50,7 @@ namespace RCToyCar
         /// </summary>
         void Patrolling()
         {
-            if (m_Agent.remainingDistance <= m_Agent.stoppingDistance)
+            if ((m_Agent.remainingDistance <= m_Agent.stoppingDistance)&&!isCrashing1)
             {
                 m_PatrolTimer += Time.deltaTime;
                 if (m_PatrolTimer > patrolWaitTime)
@@ -48,6 +60,7 @@ namespace RCToyCar
                     m_PatrolTimer = 0;
                 }
             }
+
         }
 
         /// <summary>
@@ -76,6 +89,22 @@ namespace RCToyCar
                 return;
             }
             StartCarSpeed = drCarSpeed.Speed;
+        }
+        //读表获取小车速度
+        
+        void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Player")&&!isCrashing1)
+            {
+                isCrashing1 = true;
+                AudioSource.PlayClipAtPoint(HitSound, transform.position);
+                Invoke("KnockBack1", 0.8f);
+            }
+            //玩家碰撞敌方后被击退
+        }
+        void KnockBack1()
+        {
+            isCrashing1 = false;
         }
     }
 }
