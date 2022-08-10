@@ -18,7 +18,16 @@ namespace RCToyCar
             
             void Update()
             {
-                if (Input.GetKey(KeyCode.Space) && PlayerSkill.Missile == 1)
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    MissileShoot();
+                }
+                //使用导弹
+            }
+
+            public void MissileShoot()
+            {
+                if (PlayerSkill.Missile == 1)
                 {
                     PlayerSkill.Missile--;
                     Fire();
