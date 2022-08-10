@@ -6,17 +6,17 @@ namespace RCToyCar
     public class Movement : MonoBehaviour
     {
         Vector3 m_Velocity;
-        float m_TurnSmoothVelocity;
+        float m_TurnSmoothVelocity;  //使小车转向时更顺滑
 
         public Transform cam;
         public float turnSmoothTime = 0.1f; //玩家模型转向顺滑度
-        public AudioClip HitSound;
+        public AudioClip HitSound;  //播放撞击音效
 
         private Rigidbody m_Rigidbody;
         private bool isCrashing; //玩家是否处于被撞后的眩晕状态
         private float targetAngle;
-        public static float CarSpeed;
-        public static float StartCarSpeed;
+        public static float CarSpeed;  //存储游戏进行时玩家小车速度
+        public static float StartCarSpeed;  //存储玩家小车常规速度
 
         private void Start()
         {
@@ -87,5 +87,6 @@ namespace RCToyCar
 
             StartCarSpeed = drCarSpeed.Speed;
         }
+        //读表获取小车速度
     }
 }
