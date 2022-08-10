@@ -52,30 +52,19 @@ namespace RCToyCar
 
         public void skillpush()
         {
-            if (Input.GetKey(KeyCode.Alpha1) && Shield == 1 && ShieldActive==0)
+            if (Input.GetKey(KeyCode.Alpha1))
             {
-                ShieldActive = ShieldActiveTime;
-                Invoke("ShieldActivating", ShieldLastTime);
-                AudioSource.PlayClipAtPoint(ShieldActivate, transform.position);
-                Debug.Log("释放护盾");
-                Shield--;
+                ShieldPush();
             }
             //使用护盾道具
-            
-            if (Input.GetKey(KeyCode.Alpha2) && Speedup == 1)
+            if (Input.GetKey(KeyCode.Alpha2))
             {
-                Invoke("SpeedUp", AddSpeedLastTime);
-                AudioSource.PlayClipAtPoint(SpeedupActivate, transform.position);
-                Movement.CarSpeed *= AddSpeedTimes;
-                Debug.Log("释放加速");
-                Speedup--;
+                SpeedUpPush();
             }
             //使用加速道具
-            
-            if (Input.GetKey(KeyCode.Space) && Missile == 1)
+            if (Input.GetKey(KeyCode.Space))
             {
-                AudioSource.PlayClipAtPoint(MissileActivate, transform.position);
-                Debug.Log("释放导弹");
+                MissilePush();
             }
             //使用导弹道具
         }
@@ -104,6 +93,39 @@ namespace RCToyCar
             ShieldActive = 0;
         }
         //游戏结束，清空玩家技能
+
+        public void ShieldPush()
+        {
+            if (Shield == 1 && ShieldActive == 0)
+            {
+                ShieldActive = ShieldActiveTime;
+                Invoke("ShieldActivating", ShieldLastTime);
+                AudioSource.PlayClipAtPoint(ShieldActivate, transform.position);
+                Debug.Log("释放护盾");
+                Shield--;
+            }
+        }
+
+        public void SpeedUpPush()
+        {
+            if (Speedup == 1)
+            {
+                Invoke("SpeedUp", AddSpeedLastTime);
+                AudioSource.PlayClipAtPoint(SpeedupActivate, transform.position);
+                Movement.CarSpeed *= AddSpeedTimes;
+                Debug.Log("释放加速");
+                Speedup--;
+            }
+        }
+
+        public void MissilePush()
+        {
+            if (Missile == 1)
+            {
+                AudioSource.PlayClipAtPoint(MissileActivate, transform.position);
+                Debug.Log("释放导弹");
+            }
+        }
 
         void PropOnLoad()
         {
