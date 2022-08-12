@@ -8,12 +8,16 @@
 using System.Collections.Generic;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
+using GameFramework;
+using Unity;
+using UnityEngine;
 
 namespace RCToyCar
 {
     public class ProcedureMain : ProcedureBase
     {
         private const float GameOverDelayedSeconds = 2f;
+        public static float LeaveGame;
 
         private readonly Dictionary<GameMode, GameBase> m_Games = new Dictionary<GameMode, GameBase>();
         private GameBase m_CurrentGame = null;
@@ -54,6 +58,9 @@ namespace RCToyCar
             GameMode gameMode = (GameMode)procedureOwner.GetData<VarByte>("GameMode").Value;
             m_CurrentGame = m_Games[gameMode];
             m_CurrentGame.Initialize();
+
+
+
         }
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)

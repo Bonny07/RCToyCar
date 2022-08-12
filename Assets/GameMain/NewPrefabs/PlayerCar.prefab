@@ -673,10 +673,10 @@ GameObject:
   - component: {fileID: 8487015988874552874}
   - component: {fileID: 3785551811065054498}
   - component: {fileID: 8487015988874552885}
-  - component: {fileID: 8732111117261784155}
   - component: {fileID: 1466379922363424656}
   - component: {fileID: 276315806995480655}
   - component: {fileID: 8488722948935783554}
+  - component: {fileID: 1224353002026885547}
   m_Layer: 9
   m_Name: PlayerCar
   m_TagString: Player
@@ -744,7 +744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f1e383d9a0fcdf499a94145e6786e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_startHealth: 70
   m_ExplosionPrefab: {fileID: 100008, guid: 3455fe69f7ddc4604b95bf9b0a1e88d7, type: 3}
 --- !u!114 &8487015988874552885
 MonoBehaviour:
@@ -758,27 +757,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1084178c8a1894191a58938ae46a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joystick: {fileID: 0}
   cam: {fileID: 8487015987397762974}
   turnSmoothTime: 0.2
   HitSound: {fileID: 8300000, guid: 4b4dd7245f6104c8c8eb07ccf6b386ed, type: 3}
-  DrivinSound: {fileID: 8300000, guid: 880154ee893c42e4bb927527285c107d, type: 3}
---- !u!114 &8732111117261784155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8487015988874552886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a12ada4df4083d45834227f35d516e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlayerNumber: 1
-  m_missile: {fileID: 6479620526478299499, guid: 8f50f50147672cf4bb1ded50792db8c0,
-    type: 3}
-  m_FireTransform: {fileID: 504469242101884541}
-  m_LaunchForce: 30
 --- !u!114 &1466379922363424656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,6 +777,9 @@ MonoBehaviour:
   ShieldActivate: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
   SpeedupActivate: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
   MissileActivate: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
+  m_PlayerNumber: 1
+  m_missile: {fileID: 54706524955057110, guid: af8cc40e979f6a143830e8f9dbdd9ed4, type: 3}
+  m_FireTransform: {fileID: 504469242101884541}
 --- !u!81 &276315806995480655
 AudioListener:
   m_ObjectHideFlags: 0
@@ -815,11 +800,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60cdeccbb246a6740ae6a2eb8139f282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGMPlay: {fileID: 0}
-  playtime: 0
   WinSound: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
   DrawSound: {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
   LoseSound: {fileID: 8300000, guid: 5039414d94a6e4e70a5ab9e8833e992a, type: 3}
+--- !u!114 &1224353002026885547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8487015988874552886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b5195578b3b1144886e87f965f0d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8487015988904862692
 GameObject:
   m_ObjectHideFlags: 3

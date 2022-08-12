@@ -12,6 +12,7 @@ TagManager:
   - Prop
   - Laser
   - Wall
+  - Canvas
   layers:
   - Default
   - TransparentFX

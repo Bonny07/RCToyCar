@@ -33,5 +33,10 @@ namespace RCToyCar
         /// 关于。
         /// </summary>
         AboutForm = 102,
+        
+        /// <summary>
+        /// 游戏内UI。
+        /// </summary>
+        InGameUI = 200,
     }
 }

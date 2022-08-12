@@ -8,7 +8,8 @@ namespace RCToyCar
     {
         Vector3 m_Velocity;
         float m_TurnSmoothVelocity;  //使小车转向时更顺滑
-        public Joystick joystick;
+        private Transform GameCanvas;
+        public VariableJoystick joystick;
         private float horizontal;
         private float vertical;
 
@@ -27,17 +28,22 @@ namespace RCToyCar
             m_Rigidbody = GetComponent<Rigidbody>();
             SpeedOnLoad();
             CarSpeed = StartCarSpeed;
+
         }
+        
 
         private void Update()
         {
-            /*float horizontal = Input.GetAxisRaw("Horizontal");*/
-            /*float vertical = Input.GetAxisRaw("Vertical");*/
+            /*horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");*/
+            //键盘操作
             horizontal = joystick.Horizontal;
             vertical = joystick.Vertical;
+            //虚拟摇杆操作
             Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-
+            CarWheel();
+            
             if (direction.magnitude >= 0.1f)
             {
                 targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
@@ -50,9 +56,13 @@ namespace RCToyCar
 
         void FixedUpdate()
         {
-            /*if (Input.GetKey(KeyCode.W) && isCrashing == false || Input.GetKey(KeyCode.A) && isCrashing == false ||
+            if (Input.GetKey(KeyCode.W) && isCrashing == false || Input.GetKey(KeyCode.A) && isCrashing == false ||
                 Input.GetKey(KeyCode.S) && isCrashing == false || Input.GetKey(KeyCode.D) && isCrashing == false)
-            {*/
+            {
+                Vector3 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward * CarSpeed * 0.01f;
+                m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
+            }
+            //键盘操作
             if ((horizontal!=0||vertical!=0)&&!isCrashing)
             {
                 Vector3 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward * CarSpeed * 0.01f;
@@ -96,5 +106,20 @@ namespace RCToyCar
             StartCarSpeed = drCarSpeed.Speed;
         }
         //读表获取小车速度
+
+        void CarWheel()
+        {
+            if (horizontal != 0 || vertical != 0)
+            {
+                GameObject mygameobject1 = GameObject.Find("model_LeftF");
+                GameObject mygameobject2 = GameObject.Find("model_LeftB");
+                GameObject mygameobject3 = GameObject.Find("model_RightF");
+                GameObject mygameobject4 = GameObject.Find("model_RightB");
+                mygameobject1.transform.Rotate(Vector3.forward, 1 * Time.time);
+                mygameobject2.transform.Rotate(Vector3.forward, 1 * Time.time);
+                mygameobject3.transform.Rotate(Vector3.forward, 1 * Time.time);
+                mygameobject4.transform.Rotate(Vector3.forward, 1 * Time.time);
+            }
+        }
     }
 }

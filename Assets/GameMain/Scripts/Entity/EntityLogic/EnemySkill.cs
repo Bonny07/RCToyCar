@@ -24,6 +24,12 @@ namespace RCToyCar
         
         private float AddSpeedTimes;  //加速倍率
         private float AddSpeedLastTime;  //加速持续时间
+        
+        public Rigidbody m_missile;
+        public Transform m_FireTransform;
+
+        private string m_FireButton;
+        private bool m_Fired;
 
 
         private void Start()
@@ -59,6 +65,13 @@ namespace RCToyCar
                 SkillShield.SetActive(false);
             }
             //控制护盾视觉效果
+            
+            if (EnemyShoot == 1)
+            {
+                EnemyShoot--;
+                Fire();
+                Debug.Log("敌人释放导弹");
+            }
         }
 
         public void Enemyskillpush()
@@ -112,6 +125,13 @@ namespace RCToyCar
             }
         }
         //护盾超出持续时间
+        
+        private void Fire()
+        {
+            Rigidbody shellInstance = Instantiate(m_missile, m_FireTransform.position, m_FireTransform.rotation);
+            shellInstance.velocity = PlayerSkill.MissileFlySpeed * m_FireTransform.forward;
+        }
+        //使用导弹道具后，从敌人小车发射点向前发射一枚导弹
         
         void SkillClear()
         {

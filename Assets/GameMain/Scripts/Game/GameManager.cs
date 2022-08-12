@@ -6,18 +6,33 @@ namespace RCToyCar
     {
         public static int GameResultNum; //游戏胜负判断
         public static float GameResultPlay;  //游戏胜负播报
+        public static float GameRunning;  //游戏是否处于运行状态
         
         void Start()
         {
             GameResultNum = 0;
             GameResultPlay = 0f;
+            GameRunning = 0f;
+            Invoke("GameStart",0.5f);
+            
         }
-        
+
+        void GameStart()
+        {
+            GameRunning = 1f;
+        }
+        //游戏开始
 
         
         void Update()
         {
-            GameJudge();        //游戏胜负判断
+            if (GameRunning == 1f)
+            {
+                GameJudge();
+            }
+            //游戏胜负判断
+
+
         }
 
 
@@ -80,5 +95,7 @@ namespace RCToyCar
                 GameResultPlay = 3f;
             }
         }  //游戏胜负播报
+        
+        
     }
 }
