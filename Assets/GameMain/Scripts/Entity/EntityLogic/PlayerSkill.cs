@@ -25,6 +25,13 @@ namespace RCToyCar
         public static float MissileAttackDamage;  //导弹击中造成伤害
         public static float MissileFlySpeed;  //导弹飞行速度
         public static float MissileLastTime;  //导弹持续时间
+        
+        public int m_PlayerNumber = 1;
+        public Rigidbody m_missile;
+        public Transform m_FireTransform;
+
+        private string m_FireButton;
+        private bool m_Fired;
 
         private void Start()
         {
@@ -65,6 +72,7 @@ namespace RCToyCar
             if (Input.GetKey(KeyCode.Space))
             {
                 MissilePush();
+                MissileShoot();
             }
             //使用导弹道具
         }
@@ -126,6 +134,23 @@ namespace RCToyCar
                 Debug.Log("释放导弹");
             }
         }
+        
+        public void MissileShoot()
+        {
+            if (PlayerSkill.Missile == 1)
+            {
+                PlayerSkill.Missile--;
+                Fire();
+            }
+        }
+        
+        private void Fire()
+        {
+            Rigidbody shellInstance = Instantiate(m_missile, m_FireTransform.position, m_FireTransform.rotation);
+            shellInstance.velocity = PlayerSkill.MissileFlySpeed * m_FireTransform.forward;
+            Debug.Log("释放导弹");
+        }
+        //使用导弹道具后，从小车发射点向前发射一枚导弹
 
         void PropOnLoad()
         {

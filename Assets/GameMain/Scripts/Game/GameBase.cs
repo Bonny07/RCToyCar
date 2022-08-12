@@ -37,11 +37,17 @@ namespace RCToyCar
             GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
             GameEntry.Event.Subscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFailure);
 
-            GameEntry.Entity.ShowMyAircraft(new MyAircraftData(GameEntry.Entity.GenerateSerialId(), 10003)
+            /*GameEntry.Entity.ShowMyAircraft(new MyAircraftData(GameEntry.Entity.GenerateSerialId(), 10003)
             {
                 Name = "PlayerCar",
                 Position =new Vector3(13f,0f,-35f),
-            });
+            });*/
+        
+            EntityComponent PlayerentityComponent = UnityGameFramework.Runtime.GameEntry.GetComponent<EntityComponent>();
+            PlayerentityComponent.ShowEntity<EntityPlayerRCToyCar>(1, "Assets/GameMain/NewPrefabs/PlayerCar.prefab", "PlayerCarGroup",80,new Vector3(1,1,1));
+
+            EntityComponent EnemyentityComponent = UnityGameFramework.Runtime.GameEntry.GetComponent<EntityComponent>();
+            EnemyentityComponent.ShowEntity<EntityPlayerRCToyCar>(2, "Assets/GameMain/NewPrefabs/EnemyCar.prefab", "EnemyCarGroup",80,(1,1,1));
 
             GameOver = false;
             m_MyAircraft = null;

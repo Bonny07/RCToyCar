@@ -35,13 +35,14 @@ namespace RCToyCar
 
         void Update()
         {
+            ECarWheel();
             if (isCrashing1)
             {
                 Vector3 movement = Vector3.right * StartCarSpeed * (-0.04f);
                 m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
             }
 
-                Patrolling();
+            Patrolling();
             
         }
 
@@ -105,6 +106,18 @@ namespace RCToyCar
         void KnockBack1()
         {
             isCrashing1 = false;
+        }
+
+        void ECarWheel()
+        {
+            GameObject mygameobject1 = GameObject.Find("Emodel_LeftF");
+            GameObject mygameobject2 = GameObject.Find("Emodel_LeftB");
+            GameObject mygameobject3 = GameObject.Find("Emodel_RightF");
+            GameObject mygameobject4 = GameObject.Find("Emodel_RightB");
+            mygameobject1.transform.Rotate(Vector3.forward, 1 * Time.time);
+            mygameobject2.transform.Rotate(Vector3.forward, 1 * Time.time);
+            mygameobject3.transform.Rotate(Vector3.forward, 1 * Time.time);
+            mygameobject4.transform.Rotate(Vector3.forward, 1 * Time.time);
         }
     }
 }
