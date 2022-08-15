@@ -18,7 +18,6 @@ namespace RCToyCar
         public CollectibleTypes CollectibleType;  //道具属性
         public bool rotate;  //是否旋转
         public float rotationSpeed;  //旋转速度
-        public AudioClip collectSound;  //播放拾取道具声音
         public GameObject collectEffect;  //获取道具效果
 
         private int PlayerMaxPropStorage;
@@ -53,12 +52,6 @@ namespace RCToyCar
 
         public void PlayerCollect()
         {
-            if (collectSound)
-            {
-                AudioSource.PlayClipAtPoint(collectSound, transform.position);
-            }
-            //Below is space to add in your code for what happens based on the collectible type
-
             if (CollectibleType == CollectibleTypes.None)
             {
                 //Add in code here;
@@ -69,11 +62,11 @@ namespace RCToyCar
             if (CollectibleType == CollectibleTypes.HealthRecover)
             {
                 //TYPE 1  工具箱  回复20生命
-
+                GameEntry.Sound.PlaySound(30006);
                 RCCarHealth.CurrentHealth += PlayerSkill.HealingHP;
                 collectitem();
                 Destroy(gameObject);
-                Debug.Log("玩家拾取工具箱");
+                Debug.Log("拾取工具箱");
             }
 
             if (PlayerSkill.Shield < PlayerMaxPropStorage)
@@ -127,11 +120,6 @@ namespace RCToyCar
         
         public void EnemyCollect()
         {
-            if (collectSound)
-            {
-                AudioSource.PlayClipAtPoint(collectSound, transform.position);
-            }
-
             if (CollectibleType == CollectibleTypes.None)
             {
                 //Add in code here;
@@ -142,7 +130,7 @@ namespace RCToyCar
             if (CollectibleType == CollectibleTypes.HealthRecover)
             {
                 //TYPE 1  工具箱  回复20生命
-
+                GameEntry.Sound.PlaySound(30006);
                 EnemyHealth.CurrentHealth += PlayerSkill.HealingHP;
                 collectitem();
                 Destroy(gameObject);
@@ -198,8 +186,6 @@ namespace RCToyCar
 
         public void collectitem()
         {
-            if (collectSound)
-                AudioSource.PlayClipAtPoint(collectSound, transform.position);
             if (collectEffect)
                 Instantiate(collectEffect, transform.position, Quaternion.identity);
         }

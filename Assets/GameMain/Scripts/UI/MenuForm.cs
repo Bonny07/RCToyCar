@@ -20,6 +20,7 @@ namespace RCToyCar
         public void OnStartButtonClick()
         {
             m_ProcedureMenu.StartGame();
+            GameEntry.UI.OpenUIForm(UIFormId.InGameUI);
         }
 
         public void OnSettingButtonClick()

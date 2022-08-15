@@ -34,6 +34,7 @@ namespace RCToyCar
         {
             m_ProcedureMain = null;
             base.OnClose(isShutdown, userData);
+            /*GameEntry.UI.CloseUIForm(this);*/
 
             // 还原音乐
             GameEntry.Sound.PlayMusic(1);

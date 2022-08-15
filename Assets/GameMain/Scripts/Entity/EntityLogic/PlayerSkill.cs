@@ -10,9 +10,6 @@ namespace RCToyCar
         public static float Missile;
         public static float ShieldActive;  //护盾是否正在生效
         public GameObject SkillShield;
-        public AudioClip ShieldActivate;
-        public AudioClip SpeedupActivate;
-        public AudioClip MissileActivate;
 
         public static float HealingHP;  //修理包回血量
         
@@ -107,8 +104,8 @@ namespace RCToyCar
             if (Shield == 1 && ShieldActive == 0)
             {
                 ShieldActive = ShieldActiveTime;
+                GameEntry.Sound.PlaySound(30003);
                 Invoke("ShieldActivating", ShieldLastTime);
-                AudioSource.PlayClipAtPoint(ShieldActivate, transform.position);
                 Debug.Log("释放护盾");
                 Shield--;
             }
@@ -119,7 +116,7 @@ namespace RCToyCar
             if (Speedup == 1)
             {
                 Invoke("SpeedUp", AddSpeedLastTime);
-                AudioSource.PlayClipAtPoint(SpeedupActivate, transform.position);
+                GameEntry.Sound.PlaySound(30004);
                 Movement.CarSpeed *= AddSpeedTimes;
                 Debug.Log("释放加速");
                 Speedup--;
@@ -130,16 +127,16 @@ namespace RCToyCar
         {
             if (Missile == 1)
             {
-                AudioSource.PlayClipAtPoint(MissileActivate, transform.position);
+                GameEntry.Sound.PlaySound(30005);
                 Debug.Log("释放导弹");
             }
         }
         
         public void MissileShoot()
         {
-            if (PlayerSkill.Missile == 1)
+            if (Missile == 1)
             {
-                PlayerSkill.Missile--;
+                Missile--;
                 Fire();
             }
         }
