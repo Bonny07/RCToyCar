@@ -32,6 +32,7 @@ namespace RCToyCar
             "Weapon",
             "RCToyCar",
             "Properties",
+            "WayPoint",
             
         };
 

@@ -7,12 +7,7 @@ namespace RCToyCar
     public class GameSoundPlay : MonoBehaviour
     {
         private int playtime;
-                
-        public AudioClip WinSound;
-        public AudioClip DrawSound;
-        public AudioClip LoseSound;
-
-
+        
 
         // Start is called before the first frame update
         void Start()
@@ -34,18 +29,17 @@ namespace RCToyCar
 
             if (GameManager.GameResultNum > 0)
             {
-
-                AudioSource.PlayClipAtPoint(WinSound, transform.position);
+                GameEntry.Sound.PlaySound(40000);
                 playtime++;
             }
             if (GameManager.GameResultNum == 0)
             {
-                AudioSource.PlayClipAtPoint(DrawSound, transform.position);
+                GameEntry.Sound.PlaySound(40001);
                 playtime++;
             }
             if (GameManager.GameResultNum < 0)
             {
-                AudioSource.PlayClipAtPoint(LoseSound, transform.position);
+                GameEntry.Sound.PlaySound(40002);
                 playtime++;
             }
         }

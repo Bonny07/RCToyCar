@@ -10,9 +10,6 @@ namespace RCToyCar
         public static float Missile;
         public static float ShieldActive1;  //护盾是否正在生效
         public GameObject SkillShield;
-        public AudioClip ShieldActivate;
-        public AudioClip SpeedupActivate;
-        public AudioClip MissileActivate;
 
         private float EnemyRandomSkillPush;
         private float SkillPushRange;
@@ -80,7 +77,7 @@ namespace RCToyCar
             {
                 ShieldActive1 = ShieldActiveTime;
                 Invoke("ShieldActivating", ShieldLastTime);
-                AudioSource.PlayClipAtPoint(ShieldActivate, transform.position);
+                GameEntry.Sound.PlaySound(30003);
                 Debug.Log("敌人释放护盾");
                 Shield--;
                 EnemyRandomSkillPush = Random.Range(1,SkillPushRange);
@@ -90,7 +87,7 @@ namespace RCToyCar
             if (Speedup == 1)
             {
                 Invoke("SpeedUp", AddSpeedLastTime);
-                AudioSource.PlayClipAtPoint(SpeedupActivate, transform.position);
+                GameEntry.Sound.PlaySound(30004);
                 Enemy.m_Agent.speed *= AddSpeedTimes;
                 Debug.Log("敌人释放加速");
                 Speedup--;
@@ -100,7 +97,7 @@ namespace RCToyCar
             
             if (Missile == 1)
             {
-                AudioSource.PlayClipAtPoint(MissileActivate, transform.position);
+                GameEntry.Sound.PlaySound(30005);
                 EnemyShoot ++;
                 Debug.Log("敌人释放导弹");
                 Missile--;
