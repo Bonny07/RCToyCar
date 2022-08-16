@@ -61,5 +61,18 @@ namespace RCToyCar
                 GameResultLose.SetActive(true);
             }
         }
+
+        public void SkillShiledUsing()
+        {
+            GameEntry.Event.Fire(this, new SkillEventArgs(){Skillnum = 1});
+        }
+         public void SkillSPeedUpUsing()
+        {
+            GameEntry.Event.Fire(this,new SkillEventArgs(){Skillnum = 2});
+        }
+        public void SkillMissileUsing()
+        {
+            GameEntry.Event.Fire(this,new SkillEventArgs(){Skillnum = 3});
+        }
     }
 }

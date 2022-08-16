@@ -1,5 +1,8 @@
 using UnityEngine;
 using GameFramework.DataTable;
+using GameFramework.Event;
+using UnityGameFramework.Runtime;
+using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
 namespace RCToyCar
 {
@@ -23,17 +26,19 @@ namespace RCToyCar
         public static float MissileFlySpeed;  //导弹飞行速度
         public static float MissileLastTime;  //导弹持续时间
         
-        public int m_PlayerNumber = 1;
         public Rigidbody m_missile;
         public Transform m_FireTransform;
 
         private string m_FireButton;
         private bool m_Fired;
-
+        
+        
         private void Start()
         {
             PropOnLoad();
+            GameEntry.Event.Subscribe(SkillEventArgs.EventId,UsingProp);
         }
+
 
         void Update()
         {
@@ -175,7 +180,35 @@ namespace RCToyCar
 
         }
         //道具数据加载
+        
+        private void UsingProp(object sender, GameEventArgs e)
+        {
+            SkillEventArgs ne = (SkillEventArgs)e;
+            if (ne.Skillnum ==  0)
+            {
+                return;
+            }
 
+            if (ne.Skillnum == 1)
+            {
+                ShieldPush();
+            }
+            if (ne.Skillnum == 2)
+            {
+                SpeedUpPush();
+            }
+            if (ne.Skillnum == 3)
+            {
+                MissilePush();
+                MissileShoot();
+            }
+        }
+        
+        /*protected void OnLeave(ProcedureOwner procedureOwner)
+        {
+            GameEntry.Event.Unsubscribe(SkillEventArgs.UseShield, UsingProp);
+        }*/
+        //取消UI事件订阅
     }
 }
 
