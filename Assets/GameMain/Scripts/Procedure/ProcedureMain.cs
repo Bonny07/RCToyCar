@@ -58,9 +58,6 @@ namespace RCToyCar
             GameMode gameMode = (GameMode)procedureOwner.GetData<VarByte>("GameMode").Value;
             m_CurrentGame = m_Games[gameMode];
             m_CurrentGame.Initialize();
-
-
-
         }
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
@@ -72,6 +69,7 @@ namespace RCToyCar
             }
 
             base.OnLeave(procedureOwner, isShutdown);
+            
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)

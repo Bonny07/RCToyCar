@@ -25,8 +25,6 @@ namespace RCToyCar
                 Log.Warning("ProcedureMain is invalid when open Gaming.");
                 return;
             }
-            // 换个音乐
-            GameEntry.Sound.PlayMusic(4);
         }
         //游戏开始打开游戏内UI
 
@@ -35,9 +33,6 @@ namespace RCToyCar
             m_ProcedureMain = null;
             base.OnClose(isShutdown, userData);
             /*GameEntry.UI.CloseUIForm(this);*/
-
-            // 还原音乐
-            GameEntry.Sound.PlayMusic(1);
         }
         //游戏结束关闭游戏内UI
         
