@@ -12,7 +12,6 @@ namespace RCToyCar
         protected override void OnShow(object userData)
         {
             base.OnShow(userData);
-            GameObject.FindWithTag("Canvas").transform.Find("Variable Joystick").GetComponent<VariableJoystick>();
         }
 
     }

@@ -67,7 +67,6 @@ namespace RCToyCar
             if ((horizontal != 0 || vertical != 0) && !isCrashing)
             {
                 Vector3 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward * CarSpeed * (0.02f);
-                Debug.Log("{targetAngle}");
                 m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
             }
             //玩家移动

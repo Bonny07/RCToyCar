@@ -675,7 +675,6 @@ GameObject:
   - component: {fileID: 8487015988874552885}
   - component: {fileID: 1466379922363424656}
   - component: {fileID: 8488722948935783554}
-  - component: {fileID: 1224353002026885547}
   m_Layer: 9
   m_Name: PlayerCar
   m_TagString: Player
@@ -690,8 +689,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8487015988874552886}
-  m_LocalRotation: {x: -0, y: -0.40463135, z: -0, w: 0.9144799}
-  m_LocalPosition: {x: 13.226345, y: 1.91, z: -34.601486}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -701,7 +700,7 @@ Transform:
   - {fileID: 8366263768646017848}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -47.736, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7716471457182053633
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -772,7 +771,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkillShield: {fileID: 8363425444075530838}
-  m_PlayerNumber: 1
   m_missile: {fileID: 54706524955057110, guid: af8cc40e979f6a143830e8f9dbdd9ed4, type: 3}
   m_FireTransform: {fileID: 504469242101884541}
 --- !u!114 &8488722948935783554
@@ -785,18 +783,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60cdeccbb246a6740ae6a2eb8139f282, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1224353002026885547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8487015988874552886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b5195578b3b1144886e87f965f0d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8487015988904862692
