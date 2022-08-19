@@ -40,7 +40,6 @@ namespace RCToyCar
                 Vector3 movement = Vector3.right * StartCarSpeed * (-0.04f);
                 m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
             }
-
             Patrolling();
             
         }

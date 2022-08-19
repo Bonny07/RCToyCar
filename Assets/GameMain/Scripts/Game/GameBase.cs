@@ -38,11 +38,11 @@ namespace RCToyCar
                 Position = new Vector3(13,2,-37),
             });
 
-            /*EntityComponent PlayerentityComponent = UnityGameFramework.Runtime.GameEntry.GetComponent<EntityComponent>();
-            PlayerentityComponent.ShowEntity<EntityPlayerRCToyCar>(1, "Assets/GameMain/NewPrefabs/PlayerCar.prefab", "PlayerCarGroup",80);*/
-
-            EntityComponent EnemyentityComponent = UnityGameFramework.Runtime.GameEntry.GetComponent<EntityComponent>();
-            EnemyentityComponent.ShowEntity<EntityPlayerRCToyCar>(2, "Assets/GameMain/NewPrefabs/EnemyCar.prefab", "EnemyCarGroup",80);
+            GameEntry.Entity.ShowAIRCToyCar(new AIRCToyCarData(GameEntry.Entity.GenerateSerialId(), 80002)
+            {
+                Name = "AI RCToyCar",
+                Position = new Vector3(-23,2,-2.5f),
+            });
 
             GameOver = false;
             m_MyRCToyCar = null;
