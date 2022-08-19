@@ -25,6 +25,7 @@ namespace RCToyCar
             public const int UISoundAsset = 30;
 
             public const int MyRCToyCarAsset = 90;
+            public const int AIRCToyCarAsset = 90;
             public const int MyAircraftAsset = 90;
             public const int AircraftAsset = 80;
             public const int ThrusterAsset = 30;
