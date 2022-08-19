@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2022-08-15 19:13:48.074
+// 生成时间：2022-08-19 10:28:42.871
 //------------------------------------------------------------
 
 using GameFramework;
@@ -39,7 +39,7 @@ namespace RCToyCar
         /// <summary>
         /// 获取血量。
         /// </summary>
-        public float MaxHP
+        public int MaxHP
         {
             get;
             private set;
@@ -93,7 +93,7 @@ namespace RCToyCar
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
-            MaxHP = float.Parse(columnStrings[index++]);
+            MaxHP = int.Parse(columnStrings[index++]);
             Speed = float.Parse(columnStrings[index++]);
             CarAttackDamage = float.Parse(columnStrings[index++]);
             PropStorage = int.Parse(columnStrings[index++]);
@@ -110,7 +110,7 @@ namespace RCToyCar
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    MaxHP = binaryReader.ReadSingle();
+                    MaxHP = binaryReader.Read7BitEncodedInt32();
                     Speed = binaryReader.ReadSingle();
                     CarAttackDamage = binaryReader.ReadSingle();
                     PropStorage = binaryReader.Read7BitEncodedInt32();

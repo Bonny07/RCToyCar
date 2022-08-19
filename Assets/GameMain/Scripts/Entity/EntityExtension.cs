@@ -44,6 +44,11 @@ namespace RCToyCar
         {
             entityComponent.ShowEntity(typeof(MyAircraft), "Aircraft", Constant.AssetPriority.MyAircraftAsset, data);
         }
+        
+        public static void ShowMyRCToyCar(this EntityComponent entityComponent, MyRCToyCarData data)
+        {
+            entityComponent.ShowEntity(typeof(MyRCToyCar), "PlayerCarGroup", Constant.AssetPriority.MyRCToyCarAsset, data);
+        }
 
         public static void ShowAircraft(this EntityComponent entityComponent, AircraftData data)
         {

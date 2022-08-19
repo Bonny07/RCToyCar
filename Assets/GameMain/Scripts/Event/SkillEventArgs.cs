@@ -1,8 +1,4 @@
-using System.Collections;
 using GameFramework.Event;
-using UnityEngine;
-using GameFramework;
-
 
 namespace RCToyCar
 {

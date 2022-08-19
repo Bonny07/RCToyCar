@@ -25,21 +25,27 @@ namespace RCToyCar
             protected set;
         }
 
-        private MyAircraft m_MyAircraft = null;
+        private MyRCToyCar m_MyRCToyCar = null;
 
         public virtual void Initialize()
         {
             GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
             GameEntry.Event.Subscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFailure);
+            
+            GameEntry.Entity.ShowMyRCToyCar(new MyRCToyCarData(GameEntry.Entity.GenerateSerialId(), 80001)
+            {
+                Name = "My RCToyCar",
+                Position = new Vector3(13,2,-37),
+            });
 
-            EntityComponent PlayerentityComponent = UnityGameFramework.Runtime.GameEntry.GetComponent<EntityComponent>();
-            PlayerentityComponent.ShowEntity<EntityPlayerRCToyCar>(1, "Assets/GameMain/NewPrefabs/PlayerCar.prefab", "PlayerCarGroup",80);
+            /*EntityComponent PlayerentityComponent = UnityGameFramework.Runtime.GameEntry.GetComponent<EntityComponent>();
+            PlayerentityComponent.ShowEntity<EntityPlayerRCToyCar>(1, "Assets/GameMain/NewPrefabs/PlayerCar.prefab", "PlayerCarGroup",80);*/
 
             EntityComponent EnemyentityComponent = UnityGameFramework.Runtime.GameEntry.GetComponent<EntityComponent>();
             EnemyentityComponent.ShowEntity<EntityPlayerRCToyCar>(2, "Assets/GameMain/NewPrefabs/EnemyCar.prefab", "EnemyCarGroup",80);
 
             GameOver = false;
-            m_MyAircraft = null;
+            m_MyRCToyCar = null;
         }
 
         public virtual void Shutdown()
@@ -60,9 +66,9 @@ namespace RCToyCar
         protected virtual void OnShowEntitySuccess(object sender, GameEventArgs e)
         {
             ShowEntitySuccessEventArgs ne = (ShowEntitySuccessEventArgs)e;
-            if (ne.EntityLogicType == typeof(MyAircraft))
+            if (ne.EntityLogicType == typeof(MyRCToyCar))
             {
-                m_MyAircraft = (MyAircraft)ne.Entity.Logic;
+                m_MyRCToyCar = (MyRCToyCar)ne.Entity.Logic;
             }
         }
 
