@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+using GameFramework.Event;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +12,35 @@ namespace RCToyCar
         public GameObject GameResultWin;
         public GameObject GameResultDraw;
         public GameObject GameResultLose;
+        private int GameResultPlay;
+
+        private void Start()
+        {
+            GameResultPlay = 0;
+            GameEntry.Event.Subscribe(GameResultEventArgs.EventId,GameResultPlayController);
+        }
+
+        private void GameResultPlayController(object sender, GameEventArgs e)
+        {
+            GameResultEventArgs ne = (GameResultEventArgs)e;
+            if (ne.GameResultPlay ==  0)
+            {
+                return;
+            }
+            if (ne.GameResultPlay == 1)
+            {
+                GameResultPlay = 1;
+            }
+            if (ne.GameResultPlay == 2)
+            {
+                GameResultPlay = 2;
+            }
+            if (ne.GameResultPlay == 3)
+            {
+                GameResultPlay = 3;
+            }
+        }
+
 
         void Update()
         {
@@ -46,35 +74,36 @@ namespace RCToyCar
                 SkillMissile.SetActive(false);
             }
 
-            if (GameManager.GameResultPlay == 1f)
+            if (GameResultPlay == 1)
             {
                 GameResultWin.SetActive(true);
             }
 
-            if (GameManager.GameResultPlay == 2f)
+            if (GameResultPlay == 2)
             {
                 GameResultDraw.SetActive(true);
             }
 
-            if (GameManager.GameResultPlay == 3f)
+            if (GameResultPlay == 3)
             {
                 GameResultLose.SetActive(true);
             }
         }
-
-
-
+        
         public void SkillShiledUsing()
         {
             GameEntry.Event.Fire(this, new SkillEventArgs(){Skillnum = 1});
         }
+        //抛出护盾使用事件
          public void SkillSPeedUpUsing()
         {
             GameEntry.Event.Fire(this,new SkillEventArgs(){Skillnum = 2});
         }
+        //抛出加速使用事件
         public void SkillMissileUsing()
         {
             GameEntry.Event.Fire(this,new SkillEventArgs(){Skillnum = 3});
         }
+        //抛出导弹使用事件
     }
 }

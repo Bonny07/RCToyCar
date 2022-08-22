@@ -18,7 +18,7 @@ namespace RCToyCar
         // Update is called once per frame
         void Update()
         {
-            if (GameManager.GameResultPlay != 0&&playtime==0)
+            if (GameBase.GameResultNum != 0&&playtime==0)
             {
                 ResultSound();
             }
@@ -27,17 +27,17 @@ namespace RCToyCar
         void ResultSound()
         {
 
-            if (GameManager.GameResultNum > 0)
+            if (GameBase.GameResultNum > 0)
             {
                 GameEntry.Sound.PlaySound(40000);
                 playtime++;
             }
-            if (GameManager.GameResultNum == 0)
+            if (GameBase.GameResultNum == 0)
             {
                 GameEntry.Sound.PlaySound(40001);
                 playtime++;
             }
-            if (GameManager.GameResultNum < 0)
+            if (GameBase.GameResultNum < 0)
             {
                 GameEntry.Sound.PlaySound(40002);
                 playtime++;

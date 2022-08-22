@@ -51,7 +51,7 @@ namespace RCToyCar
         
         public override ImpactData GetImpactData()
         {
-            return new ImpactData(m_RcToyCarData.Camp, m_RcToyCarData.HP, 0, m_RcToyCarData.DeadEffectId);
+            return new ImpactData(m_RcToyCarData.Camp, m_RcToyCarData.HP, 25, m_RcToyCarData.DeadEffectId);
         }
     }
 }

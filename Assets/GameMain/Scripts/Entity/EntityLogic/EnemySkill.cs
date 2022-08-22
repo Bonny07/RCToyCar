@@ -47,7 +47,7 @@ namespace RCToyCar
             }
             
             //敌人在随机时间后释放技能
-            if (GameManager.GameResultPlay != 0f)
+            if (GameBase.GameResultNum != 0f)
             {
                 SkillClear();
             }
