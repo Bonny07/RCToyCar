@@ -8,6 +8,7 @@ namespace RCToyCar
 {
     public class MyRCToyCar : RCTOYCar
     {
+        [SerializeField]
         private RCToyCarData m_MyRcToyCarData = null;
         float m_TurnSmoothVelocity=0.1f; //使小车转向时更顺滑
         public float carHorizontal;
@@ -18,7 +19,8 @@ namespace RCToyCar
         public float turnSmoothTime = 0.1f; //玩家模型转向顺滑度
         private bool isCrashing; //玩家是否处于被撞后的眩晕状态
         private Rigidbody m_Rigidbody;
-        
+        private float currentHP;
+
         private Rect m_PlayerMoveBoundary = default(Rect);
 
         
@@ -28,6 +30,7 @@ namespace RCToyCar
             GameEntry.Event.Subscribe(JoyStickEventArgs.EventId,isMoving);
             cam = FindObjectOfType<Camera>().transform;
             m_Rigidbody = GetComponent<Rigidbody> ();
+            
         }
         
         private void isMoving(object sender, GameEventArgs e)
@@ -129,11 +132,37 @@ namespace RCToyCar
                 GameEntry.Sound.PlaySound(30002); 
             }
             //玩家碰撞敌方后被击退
+            
+            if (collision.gameObject.CompareTag("Enemy")||collision.gameObject.CompareTag("Player"))
+            {            
+                if (PlayerSkill.ShieldActive != 0)
+                {
+                    PlayerSkill.ShieldActive--;
+                }
+                else
+                {
+                    currentHP -= m_MyRcToyCarData.AttackDamage;
+                }
+            }
+            //伤害计算1
+            if (collision.gameObject.CompareTag("Missile"))
+            {
+                if (PlayerSkill.ShieldActive != 0)
+                {
+                    PlayerSkill.ShieldActive--;
+                }
+                else
+                {
+                    currentHP -= PlayerSkill.MissileAttackDamage;
+                }
+            }
+            //伤害计算2
         }
         
         void KnockBack() 
         { 
             isCrashing = false; 
         }
+        
     }
 }

@@ -43,7 +43,7 @@ namespace RCToyCar
         void Update()
         {
             skillpush();
-            if (GameManager.GameResultPlay != 0f)
+            if (GameBase.GameResultNum != 0f)
             {
                 SkillClear();
             }

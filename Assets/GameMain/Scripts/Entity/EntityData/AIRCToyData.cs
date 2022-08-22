@@ -16,26 +16,13 @@ namespace RCToyCar
         public AIRCToyCarData(int entityId, int typeId)
             : base(entityId, typeId, CampType.Enemy)
         {
-            
-        }
-
-        [SerializeField]
-        private Vector3 m_WayPointPosition;
-        //路径点坐标
-        
-        private int RandomNumRange;
-
-        
-        public AIRCToyCarData(int entityId, int typeId, CampType camp)
-            : base(entityId, typeId, camp)
-        {
             IDataTable<DRWayPoint> dtPositionNum = GameEntry.DataTable.GetDataTable<DRWayPoint>();
             DRWayPoint drPositionNum = dtPositionNum.GetDataRow(10000);
             if (drPositionNum == null)
             {
                 return;
             }
-            RandomNumRange = drPositionNum.WayPointNum;
+            m_RandomNumRange = drPositionNum.WayPointNum;
 
             for (int n = 1; n < RandomNumRange; n++)
             {
@@ -45,11 +32,18 @@ namespace RCToyCar
                 {
                     return;
                 }
-
-                m_WayPointPosition = drPosition.Position;
-                new List<Vector3>();
+                m_WayPointPosition.Add(drPosition.Position);
+                
             }
         }
+
+        [SerializeField]
+        public int m_RandomNumRange;
+        //随机最大范围
+
+        [SerializeField] private List<Vector3> m_WayPointPosition = new List<Vector3>();
+        //路径点坐标
+        
         //读取小车数据
         
         /// <summary>
@@ -67,15 +61,24 @@ namespace RCToyCar
             }
         }
 
-        public Vector3 WayPointPosition
+        public List<Vector3> WayPointPosition
         {
             get
             {
                 return m_WayPointPosition;
             }
         }
+
+        public int RandomNumRange
+        {
+            get
+            {
+                return m_RandomNumRange;
+            }
+        }
         
         public override int MaxHP { get; }
+        
 
     }
 }
