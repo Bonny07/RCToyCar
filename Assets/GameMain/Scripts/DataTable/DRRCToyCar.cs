@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2022-08-22 12:20:48.847
+// 生成时间：2022-08-23 17:20:42.780
 //------------------------------------------------------------
 
 using GameFramework;
@@ -57,7 +57,7 @@ namespace RCToyCar
         /// <summary>
         /// 获取普通攻击伤害。
         /// </summary>
-        public float CarAttackDamage
+        public int CarAttackDamage
         {
             get;
             private set;
@@ -95,7 +95,7 @@ namespace RCToyCar
             index++;
             MaxHP = int.Parse(columnStrings[index++]);
             Speed = float.Parse(columnStrings[index++]);
-            CarAttackDamage = float.Parse(columnStrings[index++]);
+            CarAttackDamage = int.Parse(columnStrings[index++]);
             PropStorage = int.Parse(columnStrings[index++]);
             SkillRange = float.Parse(columnStrings[index++]);
 
@@ -112,7 +112,7 @@ namespace RCToyCar
                     m_Id = binaryReader.Read7BitEncodedInt32();
                     MaxHP = binaryReader.Read7BitEncodedInt32();
                     Speed = binaryReader.ReadSingle();
-                    CarAttackDamage = binaryReader.ReadSingle();
+                    CarAttackDamage = binaryReader.Read7BitEncodedInt32();
                     PropStorage = binaryReader.Read7BitEncodedInt32();
                     SkillRange = binaryReader.ReadSingle();
                 }

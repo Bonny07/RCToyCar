@@ -13,10 +13,6 @@ namespace RCToyCar
     public enum GameMode : byte
     {
         /// <summary>
-        /// 生存模式。
-        /// </summary>
-        ///Survival,
-        /// <summary>
         /// 机器人对战模式
         /// </summary>
         AIMode,

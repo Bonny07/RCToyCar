@@ -14,11 +14,19 @@ namespace RCToyCar
     public abstract class GameBase
     {
         private int CarNum = 0;
-        public abstract GameMode GameMode { get; }
 
-        public bool GameOver { get; protected set; }
+        public abstract GameMode GameMode
+        {
+            get;
+        }
+
+        public bool GameOver
+        {
+            get; 
+            protected set;
+        }
+        
         public static int GameResultNum; //游戏胜负判断
-
 
         private MyRCToyCar m_MyRCToyCar = null;
         private AIRCToyCar m_AIRCToyCar = null;
@@ -39,8 +47,7 @@ namespace RCToyCar
             var aiCar = new AIRCToyCarData(GameEntry.Entity.GenerateSerialId(), 80002);
             aiCar.Name = "RCAICar";
             aiCar.Position = new Vector3(-23, 2, -2.5f);
-  
-
+            
             GameEntry.Entity.ShowAIRCToyCar(aiCar);
 
             GameResultNum = 0;
@@ -91,6 +98,7 @@ namespace RCToyCar
             {
                 GameResultNum = 0;
                 GameResults();
+                return;
             }
             //玩家与敌人同时被消灭,游戏判定平局
 
@@ -98,6 +106,7 @@ namespace RCToyCar
             {
                 GameResultNum++;
                 GameResults();
+                return;
             }
             //敌方被消灭，游戏判定胜利
 
@@ -105,6 +114,7 @@ namespace RCToyCar
             {
                 GameResultNum--;
                 GameResults();
+                return;
             }
             //玩家被消灭，游戏判定失败
 
@@ -112,6 +122,7 @@ namespace RCToyCar
             {
                 GameResultNum = 0;
                 GameResults();
+                return;
             }
             //游戏计时结束，游戏判定平局
         }
@@ -122,21 +133,21 @@ namespace RCToyCar
             {
                 //判定游戏平局DRAW，播放平局UI，返回主菜单
                 GameEntry.Event.Fire(this, new GameResultEventArgs() { GameResultPlay = 2 });
-                /*GameOver = true;*/
+                GameOver = true;
             }
 
             if (GameResultNum > 0)
             {
                 //判定游戏胜利Win，播放胜利UI，返回主菜单
                 GameEntry.Event.Fire(this, new GameResultEventArgs() { GameResultPlay = 1 });
-                /*GameOver = true;*/
+                GameOver = true;
             }
 
             if (GameResultNum < 0)
             {
                 //判定游戏失败Fail，播放失败UI，返回主菜单
-                GameEntry.Event.Fire(this, new GameResultEventArgs() { GameResultPlay = 3 });
-                /*GameOver = true;*/
+                GameEntry.Event.Fire(this, new GameResultEventArgs() { GameResultPlay = 3 }); 
+                GameOver = true;
             }
         } //游戏胜负播报
     }

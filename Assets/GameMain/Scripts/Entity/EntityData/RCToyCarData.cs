@@ -10,7 +10,7 @@ namespace RCToyCar
     {
         
         [SerializeField]
-        private float m_HP = 0;  
+        private int m_MaxHP = 0;  
         //初始血量
         
         [SerializeField]
@@ -18,7 +18,7 @@ namespace RCToyCar
         //初始速度
         
         [SerializeField]
-        private float m_AttackDamage = 0;
+        private int m_AttackDamage = 0;
         //初始攻击力
         
         [SerializeField]
@@ -46,18 +46,18 @@ namespace RCToyCar
             {
                 return;
             }
-            m_HP = drRCToyCar.MaxHP;
+            HP = drRCToyCar.MaxHP;
             m_Speed = drRCToyCar.Speed;
             m_AttackDamage = drRCToyCar.CarAttackDamage;
             m_PropStorage = drRCToyCar.PropStorage;
             m_SkillRange = drRCToyCar.SkillRange;
         }
         //读取小车数据
-        public int HP
+        public override int MaxHP
         {
             get
             {
-                return (int)m_HP;
+                return m_MaxHP;
             }
         }
         
@@ -69,7 +69,7 @@ namespace RCToyCar
             }
         }
         
-        public float AttackDamage
+        public int AttackDamage
         {
             get
             {
