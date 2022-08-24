@@ -7,18 +7,20 @@ namespace RCToyCar
 {
     public class InGameUI : UGuiForm
     {
+        [SerializeField]
         private ProcedureMain m_ProcedureMain = null;
 
 
         protected override void OnInit(object userData)
         {
-
+            base.OnInit(userData);
+            m_ProcedureMain =userData as ProcedureMain;
         }
 
         protected override void OnOpen(object userData)
         {
             base.OnOpen(userData);
-            m_ProcedureMain = (ProcedureMain)userData;
+
             
             if (m_ProcedureMain == null)
             {
@@ -32,11 +34,9 @@ namespace RCToyCar
         {
             m_ProcedureMain = null;
             base.OnClose(isShutdown, userData);
-            /*GameEntry.UI.CloseUIForm(this);*/
+            GameEntry.UI.CloseUIForm(this);
         }
         //游戏结束关闭游戏内UI
-        
-        
         
 
         public void OnSettingButtonClick()

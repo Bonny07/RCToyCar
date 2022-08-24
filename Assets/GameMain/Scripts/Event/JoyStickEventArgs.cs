@@ -5,7 +5,7 @@ namespace RCToyCar
 {
     public class JoyStickEventArgs : GameEventArgs
     {
-        public static readonly int EventId = typeof(SkillEventArgs).GetHashCode();
+        public static readonly int EventId = typeof(JoyStickEventArgs).GetHashCode();
         public float Horizontal = 0f;
         public float Vertical = 0f;
         

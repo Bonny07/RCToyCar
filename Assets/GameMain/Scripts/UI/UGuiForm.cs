@@ -16,7 +16,7 @@ namespace RCToyCar
     public abstract class UGuiForm : UIFormLogic
     {
         public const int DepthFactor = 100;
-        private const float FadeTime = 0.3f;
+        private const float FadeTime = 0.5f;
 
         private static Font s_MainFont = null;
         private Canvas m_CachedCanvas = null;

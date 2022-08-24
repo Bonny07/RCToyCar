@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 599597555291146099}
   - component: {fileID: -330334399161257479}
   - component: {fileID: 7316763998467333185}
+  - component: {fileID: 4604884584104021875}
   m_Layer: 3
   m_Name: RCPlayerCar
   m_TagString: Player
@@ -69,6 +70,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b5195578b3b1144886e87f965f0d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &4604884584104021875
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168739549000891564}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3385818, y: 1.8659611, z: 3.9718246}
+  m_Center: {x: -0.014634705, y: 0.98716146, z: -0.0029838562}
 --- !u!1 &860023364845030134
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +915,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f0ab94093e61cfc4abc0d3579186438a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0ab94093e61cfc4abc0d3579186438a, type: 3}

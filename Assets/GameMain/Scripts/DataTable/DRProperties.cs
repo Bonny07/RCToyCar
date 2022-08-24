@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2022-08-22 12:20:48.850
+// 生成时间：2022-08-23 17:20:42.783
 //------------------------------------------------------------
 
 using GameFramework;
@@ -39,7 +39,7 @@ namespace RCToyCar
         /// <summary>
         /// 获取回复血量。
         /// </summary>
-        public float Healing
+        public int Healing
         {
             get;
             private set;
@@ -102,7 +102,7 @@ namespace RCToyCar
             index++;
             m_Id = int.Parse(columnStrings[index++]);
             index++;
-            Healing = float.Parse(columnStrings[index++]);
+            Healing = int.Parse(columnStrings[index++]);
             PreventDamageTime = float.Parse(columnStrings[index++]);
             AddSpeed = float.Parse(columnStrings[index++]);
             MissileDamage = float.Parse(columnStrings[index++]);
@@ -120,7 +120,7 @@ namespace RCToyCar
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                 {
                     m_Id = binaryReader.Read7BitEncodedInt32();
-                    Healing = binaryReader.ReadSingle();
+                    Healing = binaryReader.Read7BitEncodedInt32();
                     PreventDamageTime = binaryReader.ReadSingle();
                     AddSpeed = binaryReader.ReadSingle();
                     MissileDamage = binaryReader.ReadSingle();

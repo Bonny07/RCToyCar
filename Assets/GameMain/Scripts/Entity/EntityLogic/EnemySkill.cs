@@ -106,7 +106,7 @@ namespace RCToyCar
             }
             //使用导弹道具
         }
-        //玩家道具存储统计
+        //AI道具存储统计
         
         void SpeedUp()
         {

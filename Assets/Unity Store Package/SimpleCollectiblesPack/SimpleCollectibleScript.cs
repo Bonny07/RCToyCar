@@ -62,11 +62,9 @@ namespace RCToyCar
             if (CollectibleType == CollectibleTypes.HealthRecover)
             {
                 //TYPE 1  工具箱  回复20生命
-                GameEntry.Sound.PlaySound(30006);
-                RCCarHealth.CurrentHealth += PlayerSkill.HealingHP;
                 collectitem();
                 Destroy(gameObject);
-                Debug.Log("拾取工具箱");
+
             }
 
             if (PlayerSkill.Shield < PlayerMaxPropStorage)
@@ -130,8 +128,7 @@ namespace RCToyCar
             if (CollectibleType == CollectibleTypes.HealthRecover)
             {
                 //TYPE 1  工具箱  回复20生命
-                GameEntry.Sound.PlaySound(30006);
-                EnemyHealth.CurrentHealth += PlayerSkill.HealingHP;
+                
                 collectitem();
                 Destroy(gameObject);
                 Debug.Log("敌人拾取工具箱");
