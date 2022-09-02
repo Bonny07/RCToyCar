@@ -117,11 +117,13 @@ namespace RCToyCar
 
         public static void CloseUIForm(this UIComponent uiComponent, UGuiForm uiForm)
         {
+            Debug.Log($"CloseUIForm {uiForm.Name}");
             uiComponent.CloseUIForm(uiForm.UIForm);
         }
 
         public static int? OpenUIForm(this UIComponent uiComponent, UIFormId uiFormId, object userData = null)
         {
+            Debug.Log($"OpenUIForm {uiFormId}");
             return uiComponent.OpenUIForm((int)uiFormId, userData);
         }
 

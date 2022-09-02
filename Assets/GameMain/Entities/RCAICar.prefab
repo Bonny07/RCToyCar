@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6883173793525020844}
   m_Layer: 6
-  m_Name: Weapon Point
+  m_Name: Fire Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 5329732499392175016}
   - component: {fileID: 388990500389048172}
   - component: {fileID: 7657914038986960819}
+  - component: {fileID: 385292558726071267}
   m_Layer: 6
   m_Name: RCAICar
   m_TagString: Enemy
@@ -153,7 +154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4896057165148823671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.01343, y: 0.1149025, z: -10.380664}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -205,6 +206,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &385292558726071267
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4896057165148823671}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2266665, y: 1.8736281, z: 4.204714}
+  m_Center: {x: -0.010625362, y: 1.1040826, z: -0.017069817}
 --- !u!1 &5353191186086336045
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +392,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1444638899229730, guid: 9c138172de317ae47bd740b34e82ea7f, type: 3}
       propertyPath: m_Name
-      value: Shield 1
+      value: Shield
       objectReference: {fileID: 0}
     - target: {fileID: 1444638899229730, guid: 9c138172de317ae47bd740b34e82ea7f, type: 3}
       propertyPath: m_Layer
@@ -730,26 +744,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8455401050701452272}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8761462413549334177 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8792eaa902bb9b9419bdbdf6e46a76af,
-    type: 3}
-  m_PrefabInstance: {fileID: 8455401050701452272}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &8815043271425421182
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8761462413549334177}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5056163406262591993, guid: 8792eaa902bb9b9419bdbdf6e46a76af, type: 3}
 --- !u!1001 &8995482622782654338
 PrefabInstance:
   m_ObjectHideFlags: 0

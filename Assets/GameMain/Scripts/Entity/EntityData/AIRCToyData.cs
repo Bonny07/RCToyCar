@@ -1,15 +1,11 @@
 using GameFramework.DataTable;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using GameFramework.DataTable;
 
 namespace RCToyCar
 {
-    [Serializable]
     public class AIRCToyCarData : RCToyCarData
     {
-        
         [SerializeField]
         private string m_Name = null;
 
@@ -76,9 +72,5 @@ namespace RCToyCar
                 return m_RandomNumRange;
             }
         }
-        
-        public override int MaxHP { get; }
-        
-
     }
 }

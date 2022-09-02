@@ -5,7 +5,7 @@
     <String Key="Game.Description" Value="Player's Nickname" />
     <String Key="Game.Website" Value="https://GameFramework.cn/" />
     <String Key="Game.Summary" Value="An extremely casual little game, the average game time is very short, easy to get started, and the style is simple, suitable for players of all ages. This is a game made using Game Framework game framework." />
-    <String Key="Game.Introduction" Value="Reach goals and win by controlling the remote control car. The game time is 1 minute and 30 seconds. The player uses the buttons/virtual joystick to control the car. The initial HP of the car is 70. During the game, players can collect items on the field at will. If the car touches an obstacle, it will bounce back without damage. If the car touches other players, both players will bounce back and take 25 points of damage at the same time.." />
+    <String Key="Game.Introduction" Value="Reach goals and win by controlling the remote control car. The game time is 1 minute and 30 seconds. The player uses the buttons/virtual joystick to control the car. The initial HP of the car is 90. During the game, players can collect items on the field at will.If the car touches other players, both players will bounce back and take 25 points of damage at the same time.." />
     <String Key="Menu.StartButton" Value="Single Player" />
     <String Key="Menu.SettingButton" Value="SETTINGS" />
     <String Key="Menu.AboutButton" Value="ABOUT" />

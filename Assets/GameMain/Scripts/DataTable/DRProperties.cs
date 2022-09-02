@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2022-08-23 17:20:42.783
+// 生成时间：2022-09-02 16:55:58.651
 //------------------------------------------------------------
 
 using GameFramework;
@@ -19,7 +19,7 @@ using UnityGameFramework.Runtime;
 namespace RCToyCar
 {
     /// <summary>
-    /// 道具表。
+    /// 道具属性表。
     /// </summary>
     public class DRProperties : DataRowBase
     {
@@ -37,7 +37,7 @@ namespace RCToyCar
         }
 
         /// <summary>
-        /// 获取回复血量。
+        /// 获取修理包回复血量。
         /// </summary>
         public int Healing
         {
@@ -46,7 +46,7 @@ namespace RCToyCar
         }
 
         /// <summary>
-        /// 获取抵挡伤害次数。
+        /// 获取护盾抵挡伤害次数。
         /// </summary>
         public float PreventDamageTime
         {
@@ -55,7 +55,7 @@ namespace RCToyCar
         }
 
         /// <summary>
-        /// 获取移速倍率。
+        /// 获取加速移速倍率。
         /// </summary>
         public float AddSpeed
         {
@@ -66,25 +66,52 @@ namespace RCToyCar
         /// <summary>
         /// 获取导弹伤害。
         /// </summary>
-        public float MissileDamage
+        public int MissileDamage
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取持续时间。
+        /// 获取导弹持续时间。
         /// </summary>
-        public float LastTime
+        public float MissileLastTime
         {
             get;
             private set;
         }
 
         /// <summary>
-        /// 获取飞行速度。
+        /// 获取导弹飞行速度。
         /// </summary>
         public float MissileSpeed
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取护盾持续时间。
+        /// </summary>
+        public float ShieldLastTime
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取加速持续时间。
+        /// </summary>
+        public float SpeedUpLastTime
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取导弹编号。
+        /// </summary>
+        public int MissileId
         {
             get;
             private set;
@@ -105,9 +132,12 @@ namespace RCToyCar
             Healing = int.Parse(columnStrings[index++]);
             PreventDamageTime = float.Parse(columnStrings[index++]);
             AddSpeed = float.Parse(columnStrings[index++]);
-            MissileDamage = float.Parse(columnStrings[index++]);
-            LastTime = float.Parse(columnStrings[index++]);
+            MissileDamage = int.Parse(columnStrings[index++]);
+            MissileLastTime = float.Parse(columnStrings[index++]);
             MissileSpeed = float.Parse(columnStrings[index++]);
+            ShieldLastTime = float.Parse(columnStrings[index++]);
+            SpeedUpLastTime = float.Parse(columnStrings[index++]);
+            MissileId = int.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -123,9 +153,12 @@ namespace RCToyCar
                     Healing = binaryReader.Read7BitEncodedInt32();
                     PreventDamageTime = binaryReader.ReadSingle();
                     AddSpeed = binaryReader.ReadSingle();
-                    MissileDamage = binaryReader.ReadSingle();
-                    LastTime = binaryReader.ReadSingle();
+                    MissileDamage = binaryReader.Read7BitEncodedInt32();
+                    MissileLastTime = binaryReader.ReadSingle();
                     MissileSpeed = binaryReader.ReadSingle();
+                    ShieldLastTime = binaryReader.ReadSingle();
+                    SpeedUpLastTime = binaryReader.ReadSingle();
+                    MissileId = binaryReader.Read7BitEncodedInt32();
                 }
             }
 

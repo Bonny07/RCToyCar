@@ -1,6 +1,5 @@
 using GameFramework.DataTable;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RCToyCar
@@ -9,30 +8,17 @@ namespace RCToyCar
     public class PropertiesData : AccessoryObjectData
     {
         [SerializeField]
-        private float m_Healing = 0;
-        //回复血量
+        private int m_MissileId = 0;
         
-        [SerializeField]
-        private float m_PreventDamageTime = 0;
-        //抵挡伤害次数
-                
-        [SerializeField]
-        private float m_AddSpeed = 0;
-        //移速倍率
-                
-        [SerializeField]
-        private float m_MisslieDamage = 0;
-        //导弹伤害
-                
-        [SerializeField]
-        private float m_LastTime = 0;
-        //持续时间
-                
-        [SerializeField]
-        private float m_MissileSpeed = 0;
+        public float m_MissileSpeed = 0;
         //飞行速度
+        
+        public float m_MissileLastTime = 0;
+        //导弹持续时间
 
-        public PropertiesData(int entityId, int typeId, int ownerId, CampType ownerCamp) : base(entityId, typeId, ownerId, ownerCamp)
+
+        public PropertiesData(int entityId, int typeId, int ownerId, CampType ownerCamp)
+            : base(entityId, typeId, ownerId, ownerCamp)
         {
             IDataTable<DRProperties> dtProperties = GameEntry.DataTable.GetDataTable<DRProperties>();
             DRProperties drProperties = dtProperties.GetDataRow(TypeId);
@@ -40,62 +26,25 @@ namespace RCToyCar
             {
                 return;
             }
-
-            m_Healing = drProperties.Healing;
-            m_PreventDamageTime = drProperties.PreventDamageTime;
-            m_AddSpeed = drProperties.AddSpeed;
-            m_MisslieDamage = drProperties.MissileDamage;
-            m_LastTime = drProperties.LastTime;
+            m_MissileLastTime = drProperties.MissileLastTime;
             m_MissileSpeed = drProperties.MissileSpeed;
+            m_MissileId = drProperties.MissileId;
         }
         //读取道具数据
-        
-        public float Healing
-        {
-            get
-            {
-                return m_Healing;
-            }
-        }
 
-        public float PreventDamageTime
-        {
-            get
-            {
-                return m_PreventDamageTime;
-            }
-        }
-
-        public float AddSpeed
-        {
-            get
-            {
-                return m_AddSpeed;
-            }
-        }
-
-        public float MisslieDamage
-        {
-            get
-            {
-                return m_MisslieDamage;
-            }
-        }
-        
-        public float LastTime
-        {
-            get
-            {
-                return m_LastTime;
-            }
-        }
-        
         public float MissileSpeed
         {
-            get
-            {
-                return m_MissileSpeed;
-            }
+            get { return m_MissileSpeed; }
+        }
+
+        public float MissileLastTime
+        {
+            get { return m_MissileLastTime; }
+        }
+
+        public int MissileId
+        {
+            get { return m_MissileId; }
         }
     }
 }

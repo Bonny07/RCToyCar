@@ -17,6 +17,7 @@
       <Resource Name="DataTables/Thruster" LoadType="0" Packed="False" />
       <Resource Name="DataTables/UIForm" LoadType="0" Packed="False" />
       <Resource Name="DataTables/UISound" LoadType="0" Packed="False" />
+      <Resource Name="DataTables/WayPoint" LoadType="0" Packed="False" />
       <Resource Name="DataTables/Weapon" LoadType="0" Packed="False" />
       <Resource Name="Entities/Asteroid01" LoadType="0" Packed="False" />
       <Resource Name="Entities/Asteroid02" LoadType="0" Packed="False" />
@@ -28,10 +29,14 @@
       <Resource Name="Entities/EnemyEngine" LoadType="0" Packed="False" />
       <Resource Name="Entities/EnemyExplosion" LoadType="0" Packed="False" />
       <Resource Name="Entities/EnemyShip" LoadType="0" Packed="False" />
+      <Resource Name="Entities/MissileRigid" LoadType="0" Packed="False" />
       <Resource Name="Entities/PlayerBolt" LoadType="0" Packed="False" />
+      <Resource Name="Entities/PlayerCar" LoadType="0" Packed="False" />
       <Resource Name="Entities/PlayerEngine" LoadType="0" Packed="False" />
       <Resource Name="Entities/PlayerShip" LoadType="0" Packed="False" />
+      <Resource Name="Entities/RCAICar" LoadType="0" Packed="False" />
       <Resource Name="Entities/RCCarExplosion" LoadType="0" Packed="False" />
+      <Resource Name="Entities/RCPlayerCar" LoadType="0" Packed="False" />
       <Resource Name="Fonts/MainFont" LoadType="0" Packed="False" />
       <Resource Name="Fonts/Poppins-Bold" LoadType="0" Packed="False" />
       <Resource Name="Localization/ChineseSimplified/Dictionaries/Default" LoadType="0" Packed="False" />
@@ -65,21 +70,32 @@
       <Resource Name="Meshes/vehicle_enemyShip" LoadType="0" Packed="False" />
       <Resource Name="Meshes/vehicle_playerShip" LoadType="0" Packed="False" />
       <Resource Name="Meshes/vehicle_playerShip_collider" LoadType="0" Packed="False" />
+      <Resource Name="Music/10" LoadType="0" Packed="False" />
+      <Resource Name="Music/4" LoadType="0" Packed="False" />
       <Resource Name="Music/music_about" LoadType="0" Packed="False" />
       <Resource Name="Music/music_background" LoadType="0" Packed="False" />
       <Resource Name="Music/music_menu" LoadType="0" Packed="False" />
       <Resource Name="NewPrefabs/EnemyCar" LoadType="0" Packed="False" />
       <Resource Name="NewPrefabs/HealthPackSpawner" LoadType="0" Packed="False" />
       <Resource Name="NewPrefabs/MissileExplosion" LoadType="0" Packed="False" />
-      <Resource Name="NewPrefabs/MissileRigid" LoadType="0" Packed="False" />
+      <Resource Name="NewPrefabs/Plane" LoadType="0" Packed="False" />
       <Resource Name="NewPrefabs/PlayerCar" LoadType="0" Packed="False" />
       <Resource Name="NewPrefabs/ShieldSpawner" LoadType="0" Packed="False" />
       <Resource Name="NewPrefabs/SpeedUpSpawner" LoadType="0" Packed="False" />
       <Resource Name="Scenes/Main" LoadType="0" Packed="False" />
       <Resource Name="Scenes/Menu" LoadType="0" Packed="False" />
+      <Resource Name="Sounds/cannon_01" LoadType="0" Packed="False" />
+      <Resource Name="Sounds/DM-CGS-07" LoadType="0" Packed="False" />
+      <Resource Name="Sounds/DM-CGS-12" LoadType="0" Packed="False" />
+      <Resource Name="Sounds/DM-CGS-18" LoadType="0" Packed="False" />
+      <Resource Name="Sounds/DM-CGS-27" LoadType="0" Packed="False" />
+      <Resource Name="Sounds/DM-CGS-32" LoadType="0" Packed="False" />
+      <Resource Name="Sounds/DM-CGS-43" LoadType="0" Packed="False" />
+      <Resource Name="Sounds/DM-CGS-46" LoadType="0" Packed="False" />
       <Resource Name="Sounds/explosion_asteroid" LoadType="0" Packed="False" />
       <Resource Name="Sounds/explosion_enemy" LoadType="0" Packed="False" />
       <Resource Name="Sounds/explosion_player" LoadType="0" Packed="False" />
+      <Resource Name="Sounds/heal" LoadType="0" Packed="False" />
       <Resource Name="Sounds/weapon_enemy" LoadType="0" Packed="False" />
       <Resource Name="Sounds/weapon_player" LoadType="0" Packed="False" />
       <Resource Name="Textures/fx_lazer_cyan_dff" LoadType="0" Packed="False" />
@@ -105,6 +121,7 @@
       <Resource Name="Textures/vehicle_playerShip_orange_nrm" LoadType="0" Packed="False" />
       <Resource Name="UI/UIForms/AboutForm" LoadType="0" Packed="False" />
       <Resource Name="UI/UIForms/DialogForm" LoadType="0" Packed="False" />
+      <Resource Name="UI/UIForms/InGameUI" LoadType="0" Packed="False" />
       <Resource Name="UI/UIForms/MenuForm" LoadType="0" Packed="False" />
       <Resource Name="UI/UIForms/SettingForm" LoadType="0" Packed="False" />
       <Resource Name="UI/UISounds/click" LoadType="0" Packed="False" />
@@ -160,6 +177,7 @@
       <Asset Guid="239366f83979ffa48a45dac2f0f1e8cb" ResourceName="DataTables/Armor" />
       <Asset Guid="24ca310f92a6796408f1db7647ec4e55" ResourceName="UI/UISprites/Common/circle" />
       <Asset Guid="2768a9a4c8d289840918dcb879705893" ResourceName="Meshes/prop_asteroid_03" />
+      <Asset Guid="27f57cdbb306071438e27d0062e3ecd6" ResourceName="Sounds/DM-CGS-43" />
       <Asset Guid="2cb5eef4d7d7bf6459dd13a3f8d90246" ResourceName="Textures/part_jet_flare_dff" />
       <Asset Guid="315e8ed2db27c254cb3366ff0793cd90" ResourceName="DataTables/Music" />
       <Asset Guid="3455fe69f7ddc4604b95bf9b0a1e88d7" ResourceName="Entities/RCCarExplosion" />
@@ -172,15 +190,19 @@
       <Asset Guid="3f54fcfdac53aec42ae18a6a1c6d8cb1" ResourceName="UI/UISprites/Common/checked" />
       <Asset Guid="3f8953f826c2623459423698a347c8d0" ResourceName="DataTables/Properties" />
       <Asset Guid="4473d81b14ddb0143addf0e6050d8491" ResourceName="Scenes/Main" />
+      <Asset Guid="448934af29e545c45b7d2620b3ea6a58" ResourceName="Entities/PlayerCar" />
       <Asset Guid="44c8db52241385c45bbb14a1718f17bf" ResourceName="Configs/DefaultConfig" />
       <Asset Guid="4c3865b2ac420cd46a9cde6ab468d016" ResourceName="Materials/prop_asteroid_03_mat" />
       <Asset Guid="4db6a299939bfe94893585eb387f577a" ResourceName="DataTables/Thruster" />
+      <Asset Guid="4e594b2ca8fbcd446a14f38f4859d553" ResourceName="UI/UIForms/InGameUI" />
       <Asset Guid="4f688097e85071841a2c3ba165000c20" ResourceName="Textures/vehicle_playerShip_orange_dff" />
+      <Asset Guid="504e6da2db54f41489f382c0f0f44cf6" ResourceName="Sounds/DM-CGS-18" />
       <Asset Guid="5282f20eba4d44213820e21af8481932" ResourceName="Meshes/vehicle_playerShip_collider" />
       <Asset Guid="56b8df63bbad60749a69e38bc687fadf" ResourceName="UI/UISprites/Common/circle-filled" />
       <Asset Guid="578af1667322bab45b652b79a40bb4fb" ResourceName="Materials/prop_asteroid_02_mat" />
       <Asset Guid="57b9a65a6bd3fa146830f38d1d92ca80" ResourceName="Fonts/Poppins-Bold" />
       <Asset Guid="583ff7026dac91849b7c7b2468ba456b" ResourceName="Materials/prop_asteroid_01_mat" />
+      <Asset Guid="59e313aa4ae8f214eb989c7ae03e2454" ResourceName="NewPrefabs/Plane" />
       <Asset Guid="5dcd89912e222bf4c87f76db4044bc5e" ResourceName="Localization/Korean/Dictionaries/Default" />
       <Asset Guid="618d100740520b143947e8d633d635c6" ResourceName="DataTables/Aircraft" />
       <Asset Guid="62af9e5c8f39cfa49af9e10ccf42f1da" ResourceName="UI/UISprites/Common/round-button-outline" />
@@ -192,12 +214,15 @@
       <Asset Guid="6d0c0c540c192c140971904dd0b887e6" ResourceName="NewPrefabs/PlayerCar" />
       <Asset Guid="6d9b42ac01f24bf4d98923573f103575" ResourceName="Textures/prop_asteroid_02_nrm" />
       <Asset Guid="6db0c8354d868834abf29840037591b1" ResourceName="Textures/vehicle_playerShip_orange_nrm" />
+      <Asset Guid="6dbeacdc6091f864b8f16dfdbee3f6d2" ResourceName="Sounds/DM-CGS-07" />
       <Asset Guid="6e023ca4283b3a7469cd61d24c83048c" ResourceName="Textures/vehicle_enemyShip_nrm" />
       <Asset Guid="6e3730451fa077346abd4ac642ea71d8" ResourceName="Textures/fx_lazer_cyan_dff" />
       <Asset Guid="6e5d026bf0652ed4380f6a66f4aa26c5" ResourceName="Textures/vehicle_enemyShip_purple_dff" />
       <Asset Guid="71646ebaae78d43aeb8b53cacdb69671" ResourceName="Textures/tile_nebula_green_dff" />
       <Asset Guid="72e76810224064300b7d32e8322a5d12" ResourceName="Sounds/explosion_enemy" />
+      <Asset Guid="736d50e1c973c484ca3ca2eb9b0b4698" ResourceName="Entities/RCPlayerCar" />
       <Asset Guid="738bdf56857a65f479c367c7b62c4ad7" ResourceName="Entities/PlayerShip" />
+      <Asset Guid="74de464039a4e1a43a8f710f186870df" ResourceName="Music/4" />
       <Asset Guid="77cbb7c5404c10242ab59953e0746314" ResourceName="Fonts/MainFont" />
       <Asset Guid="7d5f7699d6d1d48e485ac71126e12061" ResourceName="Entities/Asteroid01" />
       <Asset Guid="7e91cd9bad7babf4b975882a4b7453cb" ResourceName="Textures/part_spark_large_dff" />
@@ -209,17 +234,20 @@
       <Asset Guid="8940b037a9b441c4cbd3d2b446838424" ResourceName="Materials/vehicle_playerShip_metal_mat" />
       <Asset Guid="8b1acacd22538f34cb85287a0781ea5e" ResourceName="DataTables/Weapon" />
       <Asset Guid="8cf749fdfa5edc3478d16893efeaa0eb" ResourceName="Entities/PlayerEngine" />
+      <Asset Guid="8dec7372934797647b588e4a3f8cf0a3" ResourceName="Sounds/DM-CGS-12" />
       <Asset Guid="8e0a72ed7bf30c24ca291fa8630088bf" ResourceName="DataTables/Properties" />
       <Asset Guid="8e114ded6a865324588170636872943c" ResourceName="DataTables/UISound" />
       <Asset Guid="8e27380ee68aa4a219b4db9018e7da31" ResourceName="Materials/done_fx_bolt_orange_mat" />
       <Asset Guid="9143e2b62ad50488482f9b73672fc331" ResourceName="Entities/Asteroid02" />
       <Asset Guid="955000b4d1441470e8cbf94f483228b5" ResourceName="Materials/done_tile_nebula_green_dff" />
+      <Asset Guid="95632a9bfda526e45bc2c6734f48c0bb" ResourceName="DataTables/WayPoint" />
       <Asset Guid="97b1f8b25cca2bc458cb9d6127c8d186" ResourceName="Materials/part_spark_large_mat" />
       <Asset Guid="97d117308cf86924289e81e7e71dd5dd" ResourceName="DataTables/Entity" />
       <Asset Guid="9897d282337c2dd4395dd68146bc488d" ResourceName="NewPrefabs/ShieldSpawner" />
       <Asset Guid="9afa958d6d8235941b9badb42aae4370" ResourceName="Meshes/prop_asteroid_02" />
       <Asset Guid="9b433f0bb7fef6f4085c316a0d88c307" ResourceName="DataTables/Music" />
       <Asset Guid="9be2e1e45f4edd74c8764538ad306b78" ResourceName="Localization/ChineseSimplified/Dictionaries/Default" />
+      <Asset Guid="9be8432efc311df44ae588bf997fcaa0" ResourceName="Sounds/DM-CGS-46" />
       <Asset Guid="9c3961f379234354e813d7b38146424d" ResourceName="DataTables/Thruster" />
       <Asset Guid="9c3faac13c8ced84a9f3018303b7bb98" ResourceName="DataTables/Sound" />
       <Asset Guid="9ddab293e2a8af3499dac05f5fd6169c" ResourceName="Meshes/vehicle_enemyShip" />
@@ -227,6 +255,7 @@
       <Asset Guid="a019ae3af8e864616b85773c509f5285" ResourceName="Sounds/explosion_player" />
       <Asset Guid="a23eef5e20ff8cb46adf33491fc443fb" ResourceName="Materials/part_spark_yellow_mat" />
       <Asset Guid="a33e23ae848110243820cda82120b105" ResourceName="DataTables/UIForm" />
+      <Asset Guid="a5971057beea42b4ab9421a7ae7c94b7" ResourceName="Sounds/DM-CGS-32" />
       <Asset Guid="a6d58f54ce5934781962a4f887e834f3" ResourceName="Entities/AsteroidExplosion" />
       <Asset Guid="a71f8bb1b1b2c51438e2bafc884cb02c" ResourceName="DataTables/Scene" />
       <Asset Guid="a7b030cffa2dc44478c14e49a22771c2" ResourceName="Materials/part_jet_flare_mat" />
@@ -237,24 +266,30 @@
       <Asset Guid="ad56aae2bb0f2ce4a86711287e14e223" ResourceName="DataTables/Asteroid" />
       <Asset Guid="ad93e1ed235bfd4428dbba081d3bb550" ResourceName="NewPrefabs/SpeedUpSpawner" />
       <Asset Guid="ae6a7f967521769458b0913fa39caaf4" ResourceName="Textures/prop_asteroid_01_dff" />
-      <Asset Guid="af8cc40e979f6a143830e8f9dbdd9ed4" ResourceName="NewPrefabs/MissileRigid" />
+      <Asset Guid="af8cc40e979f6a143830e8f9dbdd9ed4" ResourceName="Entities/MissileRigid" />
       <Asset Guid="afc18fc39ade3744397c0c993b57be53" ResourceName="Entities/EnemyShip" />
       <Asset Guid="b031b4f2980561542a7f7ba41391edc3" ResourceName="Scenes/Menu" />
       <Asset Guid="b0c7cf51d3fecb446ab93bf854419715" ResourceName="Materials/part_spark_blue_mat" />
       <Asset Guid="b2cebe04343227945bab3729ca9a3493" ResourceName="DataTables/Armor" />
       <Asset Guid="b44bfac45a6cb7f448eb320ecc030a9c" ResourceName="Configs/ResourceCollection" />
+      <Asset Guid="b5b5d6899c32d524ba603bf7bb45700b" ResourceName="Sounds/heal" />
       <Asset Guid="ba157ba55f72c424a9e88f3c029997c4" ResourceName="Textures/prop_asteroid_02_dff" />
       <Asset Guid="baedbbad82997f445a8cb4da210404e0" ResourceName="Meshes/prop_asteroid_01" />
       <Asset Guid="bbfd75fe6fe00e1448fe988173ede7f9" ResourceName="UI/UIForms/SettingForm" />
       <Asset Guid="bc7d46ebe164cf94f905d944f48b0979" ResourceName="DataTables/AssetsPath" />
+      <Asset Guid="bdcb01eb37d1be5438606306f7b45adc" ResourceName="Entities/RCAICar" />
       <Asset Guid="bf75b984df8a84987bcf3a8bf6e2862d" ResourceName="Sounds/weapon_player" />
       <Asset Guid="c547624e174de984882f0a14b4bb32e1" ResourceName="Materials/vehicle_enemyShip_metal_mat" />
       <Asset Guid="c58c9afddbd36d14d837fa218d772996" ResourceName="Materials/part_jet_core_mat" />
       <Asset Guid="c7d1e11dd37634b48a9dd4012b8e4306" ResourceName="UI/UISounds/click" />
+      <Asset Guid="ca89af9385e95ae47b0ae54b62e8f625" ResourceName="DataTables/WayPoint" />
       <Asset Guid="caa829ab2ffc71340a69253afdf58365" ResourceName="Music/music_menu" />
       <Asset Guid="cadd0764941c8b646ae79b51d0ea8285" ResourceName="UI/UISprites/Common/background" />
+      <Asset Guid="cd51060b2ff49624fa1033064da9e404" ResourceName="Sounds/cannon_01" />
       <Asset Guid="cfe53cf384344bd47a8680f8c5f97a7b" ResourceName="DataTables/Entity" />
+      <Asset Guid="d32c223e455e13a4ba8615a086d09620" ResourceName="Music/10" />
       <Asset Guid="d9808401c68af274a8edfbed3d1b53c7" ResourceName="Meshes/vehicle_playerShip" />
+      <Asset Guid="db169dcec308cdb4188051acdcd318a8" ResourceName="Sounds/DM-CGS-27" />
       <Asset Guid="db58965402f12ed47b4dad61a9e48c9d" ResourceName="UI/UISprites/Icons/world" />
       <Asset Guid="e0792649e7774a24d8e7cceba0231c61" ResourceName="DataTables/Asteroid" />
       <Asset Guid="e57256e12f80d8a4793b256eaa3195ad" ResourceName="NewPrefabs/HealthPackSpawner" />

@@ -171,7 +171,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5460647537083961037}
   - component: {fileID: 54706524955057110}
-  - component: {fileID: 7684477919063500755}
   - component: {fileID: 1466189548053367648}
   m_Layer: 0
   m_Name: MissileRigid
@@ -187,8 +186,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7054430221025574826}
-  m_LocalRotation: {x: 0.000000021841661, y: -0.035834953, z: -7.831977e-10, w: 0.99935776}
-  m_LocalPosition: {x: -31.931042, y: 27.2, z: -34.351665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -210,21 +209,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &7684477919063500755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7054430221025574826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49558db65056ad148b4a2cecf530f531, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ExplosionPrefab: {fileID: 151086, guid: 6bc6d0dd8b8428e4ca316513f2cf13c6, type: 3}
 --- !u!136 &1466189548053367648
 CapsuleCollider:
   m_ObjectHideFlags: 0

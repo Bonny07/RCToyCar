@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 599597555291146099}
   - component: {fileID: -330334399161257479}
-  - component: {fileID: 7316763998467333185}
   - component: {fileID: 4604884584104021875}
   m_Layer: 3
   m_Name: RCPlayerCar
@@ -27,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168739549000891564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.742497, y: 0.111086845, z: -31.842182}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -58,18 +57,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7316763998467333185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 168739549000891564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b5195578b3b1144886e87f965f0d5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &4604884584104021875
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -351,7 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2651514597357676542}
   m_Layer: 0
-  m_Name: FireTransform
+  m_Name: Fire Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -938,7 +925,7 @@ MeshCollider:
   m_GameObject: {fileID: 6034605363017448922}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
