@@ -33,7 +33,7 @@ namespace RCToyCar
 
         public virtual void Initialize()
         {
-            GameOver = false;
+
 
             GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId, OnShowEntitySuccess);
             GameEntry.Event.Subscribe(ShowEntityFailureEventArgs.EventId, OnShowEntityFailure);
@@ -51,6 +51,8 @@ namespace RCToyCar
             GameEntry.Entity.ShowAIRCToyCar(aiCar);
 
             GameResultNum = 0;
+            GameOver = false;
+            
         }
 
 
@@ -68,6 +70,7 @@ namespace RCToyCar
             }
 
             GameJudge();
+            
         }
 
         protected virtual void OnShowEntitySuccess(object sender, GameEventArgs e)
@@ -98,7 +101,8 @@ namespace RCToyCar
             {
                 GameResultNum = 0;
                 GameResults();
-                return;
+
+
             }
             //玩家与敌人同时被消灭,游戏判定平局
 
@@ -106,7 +110,7 @@ namespace RCToyCar
             {
                 GameResultNum++;
                 GameResults();
-                return;
+
             }
             //敌方被消灭，游戏判定胜利
 
@@ -114,7 +118,7 @@ namespace RCToyCar
             {
                 GameResultNum--;
                 GameResults();
-                return;
+
             }
             //玩家被消灭，游戏判定失败
 
@@ -122,7 +126,7 @@ namespace RCToyCar
             {
                 GameResultNum = 0;
                 GameResults();
-                return;
+
             }
             //游戏计时结束，游戏判定平局
         }
@@ -133,7 +137,9 @@ namespace RCToyCar
             {
                 //判定游戏平局DRAW，播放平局UI，返回主菜单
                 GameEntry.Event.Fire(this, new GameResultEventArgs() { GameResultPlay = 2 });
+
                 GameOver = true;
+                
             }
 
             if (GameResultNum > 0)
@@ -141,6 +147,7 @@ namespace RCToyCar
                 //判定游戏胜利Win，播放胜利UI，返回主菜单
                 GameEntry.Event.Fire(this, new GameResultEventArgs() { GameResultPlay = 1 });
                 GameOver = true;
+
             }
 
             if (GameResultNum < 0)
@@ -148,6 +155,7 @@ namespace RCToyCar
                 //判定游戏失败Fail，播放失败UI，返回主菜单
                 GameEntry.Event.Fire(this, new GameResultEventArgs() { GameResultPlay = 3 }); 
                 GameOver = true;
+
             }
         } //游戏胜负播报
     }

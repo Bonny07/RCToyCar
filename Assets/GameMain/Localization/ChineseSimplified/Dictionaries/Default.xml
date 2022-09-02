@@ -5,7 +5,7 @@
     <String Key="Game.Description" Value="玩家昵称" />
     <String Key="Game.Website" Value="https://GameFramework.cn/" />
     <String Key="Game.Summary" Value="极其休闲的一款小游戏，场均游戏时间非常短，上手容易，画风简洁，适合全年龄段玩家。这是一个使用 Game Framework 游戏框架制作的游戏." />
-    <String Key="Game.Introduction" Value="通过操控遥控小车来达成目标，赢得胜利。游戏时间1分30秒，玩家使用按键/虚拟摇杆操控小车，小车初始血量为70。在游戏过程中，玩家可以随意的收集场上道具。若小车触碰障碍物则弹回不受伤害，若小车触碰其他玩家则双方弹回，并同时受到25点伤害。" />
+    <String Key="Game.Introduction" Value="通过操控遥控小车来达成目标，赢得胜利。游戏时间1分30秒，玩家使用按键/虚拟摇杆操控小车，小车初始血量为90。在游戏过程中，玩家可以随意的收集场上道具。若小车触碰其他玩家则双方弹回，并同时受到25点伤害。" />
     <String Key="Menu.StartButton" Value="人机模式" />
     <String Key="Menu.SettingButton" Value="设置" />
     <String Key="Menu.AboutButton" Value="关于" />

@@ -1,12 +1,14 @@
+using System;
 using UnityEngine;
+using GameFramework.Event;
 
-namespace GameMain.Scripts
+namespace RCToyCar
 {
 
     public class CamControl : MonoBehaviour
     {
         [Header("相机跟随")] public Transform lookAtPos; // 相机对准的位置
-        [Header("相机臂"), Range(0, 10)] public float armLeghth = 5; // 相机臂长度
+        [Header("相机臂"), Range(0, 10)] public float armLeghth = 20; // 相机臂长度
         [Range(-90, 90)] public float armVerticalRadius = 45; // 相机臂垂直角度
         [Range(-180, 180)] public float armHorizontalRadius = -90; // 相机臂水平角度
         [Header("相机反转")] public bool horizontalInvert = true; // 水平移动反转
@@ -15,6 +17,28 @@ namespace GameMain.Scripts
         [Header("相机移动速度")] public float horizontalSpeed = 1f; // 相机旋转速度
         public float verticalSpeed = 1f; // 相机上下速度
         public float distanceSpeed = 1f; // 相机远近速度
+        public float horizontalRotaion;
+        public float verticalRotation;
+
+        public void Start()
+        {
+            GameEntry.Event.Subscribe(DisplayDistanceEventArgs.EventId,DisplayDS);
+            GameEntry.Event.Subscribe(CamControlEventArgs.EventId,JoyStickCamControl);
+        }
+
+        public void DisplayDS(object sender, GameEventArgs e)
+        {
+            DisplayDistanceEventArgs ne = (DisplayDistanceEventArgs)e;
+            armLeghth = 10*ne.DisplayDistance;
+        }
+
+        public void JoyStickCamControl(object sender, GameEventArgs e)
+        {
+            CamControlEventArgs ne = (CamControlEventArgs)e;
+            horizontalRotaion = ne.CamHorizontal;
+            verticalRotation = ne.CamVertical;
+
+        }
 
         private void LateUpdate()
         {
@@ -67,18 +91,20 @@ namespace GameMain.Scripts
         /// </summary>
         void SetCameraRot()
         {
+
+            
             // 鼠标锁定后才能旋转 不需要可以删除该行代码
             /*if (Cursor.lockState != CursorLockMode.Locked) return;*/
 
             // 左右旋转
-            float horizontalRotaion = horizontalInvert ? -Input.GetAxis("Mouse X") : Input.GetAxis("Mouse X");
+            /*horizontalRotaion = horizontalInvert ? -Input.GetAxis("Mouse X") : Input.GetAxis("Mouse X");*/
             armHorizontalRadius += horizontalRotaion * horizontalSpeed;
             // 旋转控制在 ±180° 以内
             if (armHorizontalRadius > 180 || armHorizontalRadius < -180) armHorizontalRadius = -armHorizontalRadius;
             armHorizontalRadius = Mathf.Clamp(armHorizontalRadius, -180, 180);
 
             // 上下旋转
-            float verticalRotation = verticalInvert ? -Input.GetAxis("Mouse Y") : Input.GetAxis("Mouse Y");
+            /*verticalRotation = verticalInvert ? -Input.GetAxis("Mouse Y") : Input.GetAxis("Mouse Y");*/
             armVerticalRadius += verticalRotation * verticalSpeed;
 
             // 相机远近

@@ -69,6 +69,11 @@ namespace RCToyCar
         {
             entityComponent.ShowEntity(typeof(Weapon), "Weapon", Constant.AssetPriority.WeaponAsset, data);
         }
+        
+        public static void ShowProp(this EntityComponent entityComponent, PropertiesData data)
+        {
+            entityComponent.ShowEntity(typeof(Properties), "Properties", Constant.AssetPriority.PropertiesAsset, data);
+        }
 
         public static void ShowArmor(this EntityComponent entityComponent, ArmorData data)
         {
@@ -78,6 +83,11 @@ namespace RCToyCar
         public static void ShowBullet(this EntityComponent entityCompoennt, BulletData data)
         {
             entityCompoennt.ShowEntity(typeof(Bullet), "Bullet", Constant.AssetPriority.BulletAsset, data);
+        }
+        
+        public static void ShowMissile(this EntityComponent entityCompoennt, MissileData data)
+        {
+            entityCompoennt.ShowEntity(typeof(Missile), "Missile", Constant.AssetPriority.MissileAsset, data);
         }
 
         public static void ShowAsteroid(this EntityComponent entityCompoennt, AsteroidData data)

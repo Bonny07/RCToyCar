@@ -55,15 +55,13 @@ namespace RCToyCar
         protected internal override void OnShow(object userData)
 #endif
         {
-            base.OnShow(userData);
-
+                base.OnShow(userData);
             m_EntityData = userData as EntityData;
             if (m_EntityData == null)
             {
                 Log.Error("Entity data is invalid.");
                 return;
             }
-
             Name = Utility.Text.Format("[Entity {0}]", Id);
             CachedTransform.localPosition = m_EntityData.Position;
             CachedTransform.localRotation = m_EntityData.Rotation;

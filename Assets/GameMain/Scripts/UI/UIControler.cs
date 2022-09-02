@@ -13,11 +13,61 @@ namespace RCToyCar
         public GameObject GameResultDraw;
         public GameObject GameResultLose;
         private int GameResultPlay;
+        public int StorageShield;
+        public int StorageSpeedup;
+        public int StorageMissile;
 
         private void Start()
         {
             GameResultPlay = 0;
+            GameResultWin.SetActive(false);
+            GameResultDraw.SetActive(false);
+            GameResultLose.SetActive(false);
             GameEntry.Event.Subscribe(GameResultEventArgs.EventId,GameResultPlayController);
+            GameEntry.Event.Subscribe(SkillStorageEventArgs.EventId,PropStorageController);
+            StorageShield = 0;
+            StorageSpeedup = 0;
+            StorageMissile = 0;
+        }
+
+        private void PropStorageController(object sender, GameEventArgs e)
+        {
+            SkillStorageEventArgs ne = (SkillStorageEventArgs)e;
+            if (ne.ShieldStorage ==  0&&ne.SpeedUpStorage==0&&ne.MissileStorage==0)
+            {
+                return;
+            }
+
+            if (ne.ShieldStorage == 1)
+            {
+                StorageShield=1;
+                ne.ShieldStorage = 0;
+            }
+            else if (ne.SpeedUpStorage == 1)
+            {
+                StorageSpeedup=1;
+                ne.SpeedUpStorage = 0;
+            }
+            else if (ne.MissileStorage == 1)
+            {
+                StorageMissile=1;
+                ne.MissileStorage = 0;
+            }
+            else if (ne.ShieldStorage == 2)
+            {
+                StorageShield=0;
+                ne.ShieldStorage = 0;
+            }
+            else if (ne.SpeedUpStorage == 2)
+            {
+                StorageSpeedup=0;
+                ne.SpeedUpStorage = 0;
+            }
+            else if (ne.MissileStorage == 2)
+            {
+                StorageMissile=0;
+                ne.MissileStorage = 0;
+            }
         }
 
         private void GameResultPlayController(object sender, GameEventArgs e)
@@ -31,11 +81,11 @@ namespace RCToyCar
             {
                 GameResultPlay = 1;
             }
-            if (ne.GameResultPlay == 2)
+            else if (ne.GameResultPlay == 2)
             {
                 GameResultPlay = 2;
             }
-            if (ne.GameResultPlay == 3)
+            else if (ne.GameResultPlay == 3)
             {
                 GameResultPlay = 3;
             }
@@ -44,32 +94,32 @@ namespace RCToyCar
 
         void Update()
         {
-            if (PlayerSkill.Shield == 1)
+            if (StorageShield == 1)
             {
                 SkillShield.SetActive(true);
             }
 
-            if (PlayerSkill.Shield != 1)
+            else if (StorageShield != 1)
             {
                 SkillShield.SetActive(false);
             }
 
-            if (PlayerSkill.Speedup == 1)
+            if (StorageSpeedup == 1)
             {
                 SkillSpeed.SetActive(true);
             }
 
-            if (PlayerSkill.Speedup != 1)
+            else if (StorageSpeedup != 1)
             {
                 SkillSpeed.SetActive(false);
             }
 
-            if (PlayerSkill.Missile == 1)
+            if (StorageMissile == 1)
             {
                 SkillMissile.SetActive(true);
             }
 
-            if (PlayerSkill.Missile != 1)
+            else if (StorageMissile != 1)
             {
                 SkillMissile.SetActive(false);
             }
@@ -77,16 +127,28 @@ namespace RCToyCar
             if (GameResultPlay == 1)
             {
                 GameResultWin.SetActive(true);
+                GameResultDraw.SetActive(false);
+                GameResultLose.SetActive(false);
             }
 
-            if (GameResultPlay == 2)
+            else if (GameResultPlay == 2)
             {
                 GameResultDraw.SetActive(true);
+                GameResultWin.SetActive(false);
+                GameResultLose.SetActive(false);
             }
 
-            if (GameResultPlay == 3)
+            else if (GameResultPlay == 3)
             {
                 GameResultLose.SetActive(true);
+                GameResultWin.SetActive(false);
+                GameResultDraw.SetActive(false);
+            }
+            else
+            {
+                GameResultWin.SetActive(false);
+                GameResultDraw.SetActive(false);
+                GameResultLose.SetActive(false);
             }
         }
         

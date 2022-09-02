@@ -12,8 +12,11 @@ TagManager:
   - Prop
   - Laser
   - Wall
-  - Canvas
   - Camera
+  - HealthPack
+  - Shield
+  - SpeedUp
+  - MissileProp
   layers:
   - Default
   - TransparentFX

@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 6479620526478299499}
   - component: {fileID: 6153993369481136357}
   - component: {fileID: 4032581089724231325}
-  - component: {fileID: 2523990086710666872}
   m_Layer: 2
   m_Name: Missile1
-  m_TagString: Missile
+  m_TagString: MissileProp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,16 +178,3 @@ CapsuleCollider:
   m_Height: 0.9253192
   m_Direction: 1
   m_Center: {x: -0.000000014901161, y: 0.008582592, z: 1.0943692e-17}
---- !u!114 &2523990086710666872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825870777587358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49558db65056ad148b4a2cecf530f531, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ExplosionPrefab: {fileID: 0}

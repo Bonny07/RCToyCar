@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2022-08-23 17:20:42.780
+// 生成时间：2022-09-02 16:55:58.648
 //------------------------------------------------------------
 
 using GameFramework;
@@ -81,6 +81,15 @@ namespace RCToyCar
             private set;
         }
 
+        /// <summary>
+        /// 获取道具Id。
+        /// </summary>
+        public int PropId
+        {
+            get;
+            private set;
+        }
+
         public override bool ParseDataRow(string dataRowString, object userData)
         {
             string[] columnStrings = dataRowString.Split(DataTableExtension.DataSplitSeparators);
@@ -98,6 +107,7 @@ namespace RCToyCar
             CarAttackDamage = int.Parse(columnStrings[index++]);
             PropStorage = int.Parse(columnStrings[index++]);
             SkillRange = float.Parse(columnStrings[index++]);
+            PropId = int.Parse(columnStrings[index++]);
 
             GeneratePropertyArray();
             return true;
@@ -115,6 +125,7 @@ namespace RCToyCar
                     CarAttackDamage = binaryReader.Read7BitEncodedInt32();
                     PropStorage = binaryReader.Read7BitEncodedInt32();
                     SkillRange = binaryReader.ReadSingle();
+                    PropId = binaryReader.Read7BitEncodedInt32();
                 }
             }
 

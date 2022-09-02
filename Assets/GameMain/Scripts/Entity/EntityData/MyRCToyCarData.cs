@@ -12,7 +12,6 @@ namespace RCToyCar
         public MyRCToyCarData(int entityId, int typeId)
             : base(entityId, typeId, CampType.Player)
         {
-            
         }
 
         /// <summary>
@@ -29,7 +28,5 @@ namespace RCToyCar
                 m_Name = value;
             }
         }
-
-        public override int MaxHP { get; }
     }
 }

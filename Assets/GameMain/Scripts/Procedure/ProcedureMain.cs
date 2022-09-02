@@ -5,7 +5,9 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
+using GameFramework.Event;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
@@ -13,7 +15,7 @@ namespace RCToyCar
 {
     public class ProcedureMain : ProcedureBase
     {
-        private const float GameOverDelayedSeconds = 2f;
+        private const float GameOverDelayedSeconds = 3f;
         private InGameUI m_InGameUI = null;
 
         private readonly Dictionary<GameMode, GameBase> m_Games = new Dictionary<GameMode, GameBase>();
@@ -40,7 +42,12 @@ namespace RCToyCar
             m_Games.Add(GameMode.AIMode, new AIMode());
         }
 
+        protected override void OnDestroy(ProcedureOwner procedureOwner)
+        {
+            base.OnDestroy(procedureOwner);
 
+            m_Games.Clear();
+        }
 
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
@@ -63,11 +70,14 @@ namespace RCToyCar
                 m_CurrentGame.Update(elapseSeconds, realElapseSeconds);
                 return;
             }
+            
+            
 
             if (!m_GotoMenu)
             {
                 m_GotoMenu = true;
                 m_GotoMenuDelaySeconds = 2f;
+
             }
 
             m_GotoMenuDelaySeconds += elapseSeconds;
@@ -82,20 +92,16 @@ namespace RCToyCar
         {
             if (m_CurrentGame != null)
             {
+                m_InGameUI = null;
                 m_CurrentGame.Shutdown();
-
                 m_CurrentGame = null;
+                // fire close ingameui 
+                GameEntry.Event.Fire(this,new GameOverEventArgs(){GameOverCloseUI = 1});
             }
+           
 
             base.OnLeave(procedureOwner, isShutdown);
-
         }
         
-        protected override void OnDestroy(ProcedureOwner procedureOwner)
-        {
-            base.OnDestroy(procedureOwner);
-
-            m_Games.Clear();
-        }
     }
 }
