@@ -60,6 +60,7 @@ namespace RCToyCar
             Shield = 0;
             Speedup = 0;
             Missile = 0;
+            GameEntry.Event.Fire(this,new AIHPDisplayEventArgs(){AIHP = m_AIRCToyCarData.HP});
         }
         //重置小车组件
 
@@ -145,6 +146,7 @@ namespace RCToyCar
                     Invoke("KnockBack", 0.8f);
                     GameEntry.Sound.PlaySound(30002);
                     m_AIRCToyCarData.HP -= m_AIRCToyCarData.AttackDamage;
+                    GameEntry.Event.Fire(this,new AIHPDisplayEventArgs(){AIHP =m_AIRCToyCarData.HP});
                 }
             }
 
@@ -163,6 +165,7 @@ namespace RCToyCar
                 else
                 {
                     m_AIRCToyCarData.HP -= m_AIRCToyCarData.MisslieDamage;
+                    GameEntry.Event.Fire(this,new AIHPDisplayEventArgs(){AIHP =m_AIRCToyCarData.HP});
                 }
             }
             //伤害计算2
@@ -171,6 +174,7 @@ namespace RCToyCar
             {
                 GameEntry.Sound.PlaySound(30006);
                 m_AIRCToyCarData.HP += m_AIRCToyCarData.Healing;
+                GameEntry.Event.Fire(this,new AIHPDisplayEventArgs(){AIHP =m_AIRCToyCarData.HP});
                 Debug.Log("AI拾取工具箱");
             }
 

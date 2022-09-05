@@ -10,10 +10,7 @@ namespace RCToyCar
         public float CountDown; //游戏计时器
         public TextMeshProUGUI CountDownText;
         public static int TimeisUp; //游戏时间是否结束
-        private RCToyCarData m_MyRcToyCarData = null;
-        private AIRCToyCarData m_AIRCToyCarData = null;
-
-
+        
         void Start()
         {
             CountDown = 90f;
@@ -24,8 +21,6 @@ namespace RCToyCar
         {
             CountDown -= Time.deltaTime;
             CountDownText.text = (int)CountDown + "s";
-            /*PlayerHP.text = m_MyRcToyCarData.HP + "Player";
-            EnemyHP.text = m_AIRCToyCarData.HP + "Enemy";*/
             GameTimer();
         }
         void GameTimer()

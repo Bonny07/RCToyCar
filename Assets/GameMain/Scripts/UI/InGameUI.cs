@@ -1,10 +1,7 @@
-using System;
 using UnityEngine;
 using GameFramework.Event;
 using TMPro;
 using UnityEngine.UI;
-using UnityGameFramework.Runtime;
-using GameFramework.DataTable;
 
 namespace RCToyCar
 {
@@ -26,9 +23,9 @@ namespace RCToyCar
         public float CountDown; //游戏计时器
         public TextMeshProUGUI CountDownText;
         public static int TimeisUp; //游戏时间是否结束
-        private RCToyCarData m_MyRcToyCarData = null;
-        private AIRCToyCarData m_AIRCToyCarData = null;
-        private bool isOn;
+        public TextMeshProUGUI PlyaerHPDisplay;
+        public TextMeshProUGUI AIHPDisplay;
+        
         public Slider m_testSlider;
 
 
@@ -44,6 +41,8 @@ namespace RCToyCar
             m_ProcedureMain = new ProcedureMain();
             base.OnOpen(userData);
 
+            GameEntry.Event.Subscribe(PlayerHPDisplayEventArgs.EventId,PlayerHPDisplayer);
+            GameEntry.Event.Subscribe(AIHPDisplayEventArgs.EventId,AIHPDisplayer);
             GameEntry.Event.Subscribe(GameResultEventArgs.EventId,GameResultPlayController);
             GameEntry.Event.Subscribe(SkillStorageEventArgs.EventId,PropStorageController);   
             GameEntry.Event.Subscribe(GameOverEventArgs.EventId,CloseUI);
@@ -58,7 +57,6 @@ namespace RCToyCar
             GameResultLose.SetActive(false); 
             CountDown = 90f;
             TimeisUp = 0;
-            isOn = false;
         }
         //游戏开始打开游戏内UI
 
@@ -145,6 +143,8 @@ namespace RCToyCar
             GameEntry.Event.Unsubscribe(GameOverEventArgs.EventId,CloseUI);
             GameEntry.Event.Unsubscribe(GameResultEventArgs.EventId,GameResultPlayController);
             GameEntry.Event.Unsubscribe(SkillStorageEventArgs.EventId,PropStorageController);
+            GameEntry.Event.Unsubscribe(PlayerHPDisplayEventArgs.EventId,PlayerHPDisplayer);
+            GameEntry.Event.Unsubscribe(AIHPDisplayEventArgs.EventId,AIHPDisplayer);
             m_ProcedureMain = null;
             base.OnClose(isShutdown, userData);
         }
@@ -275,10 +275,22 @@ namespace RCToyCar
                 GameResultLose.SetActive(false); 
                 CountDown = 90f;
                 TimeisUp = 0;
-                isOn = false;
+                GameEntry.UI.OpenUIForm(UIFormId.LoadingUI, this);
                 Close();
-                return;
             }
+        }
+
+        public void PlayerHPDisplayer(object sender, GameEventArgs e)
+        {
+            PlayerHPDisplayEventArgs ne = (PlayerHPDisplayEventArgs)e;
+            PlyaerHPDisplay.text = ne.PlayerHP+"Player";
+
+        }
+
+        public void AIHPDisplayer(object sender, GameEventArgs e)
+        {
+            AIHPDisplayEventArgs ne = (AIHPDisplayEventArgs)e;
+            AIHPDisplay.text = ne.AIHP + "Enemy";
         }
     }
 }
