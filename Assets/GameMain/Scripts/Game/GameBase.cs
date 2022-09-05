@@ -123,7 +123,7 @@ namespace RCToyCar
             }
             //玩家被消灭，游戏判定失败
 
-            if (TimeCountDownController.TimeisUp == 1)
+            if (InGameUI.TimeisUp == 1)
             {
                 GameResultNum = 0;
                 GameResults();
@@ -157,12 +157,9 @@ namespace RCToyCar
                 GameEntry.Event.Fire(this, new GameResultEventArgs() { GameResultPlay = 3 }); 
                 GameOver = true;
                 
+                
             }
         } //游戏胜负播报
 
-        void OpenLoadingUI()
-        {
-            
-        }
     }
 }
