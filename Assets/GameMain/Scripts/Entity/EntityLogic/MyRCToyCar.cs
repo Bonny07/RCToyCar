@@ -17,8 +17,6 @@ namespace RCToyCar
         private Rigidbody m_Rigidbody;
         private float CurrentSpeed;
 
-        private Rect m_PlayerMoveBoundary = default(Rect);
-
         private MyRCToyCarData m_MyRcToyCarData;
 
         public float Shield; //持有护盾数量
@@ -53,6 +51,7 @@ namespace RCToyCar
             GameEntry.Event.Fire(this,new SkillStorageEventArgs(){ShieldStorage = 2});
             GameEntry.Event.Fire(this,new SkillStorageEventArgs(){SpeedUpStorage = 2});
             GameEntry.Event.Fire(this,new SkillStorageEventArgs(){MissileStorage = 2});
+            GameEntry.Event.Fire(this,new PlayerHPDisplayEventArgs(){PlayerHP =m_MyRcToyCarData.HP});
             CurrentSpeed = m_MyRcToyCarData.Speed;
 
         }
@@ -164,6 +163,7 @@ namespace RCToyCar
                     Invoke("KnockBack", 0.8f);
                     GameEntry.Sound.PlaySound(30002);
                     m_MyRcToyCarData.HP -= m_MyRcToyCarData.AttackDamage;
+                    GameEntry.Event.Fire(this,new PlayerHPDisplayEventArgs(){PlayerHP =m_MyRcToyCarData.HP});
                 }
             }
 
@@ -177,6 +177,7 @@ namespace RCToyCar
                 else
                 {
                     m_MyRcToyCarData.HP -= m_MyRcToyCarData.MisslieDamage;
+                    GameEntry.Event.Fire(this,new PlayerHPDisplayEventArgs(){PlayerHP =m_MyRcToyCarData.HP});
                 }
             }
             //伤害计算2
@@ -188,6 +189,7 @@ namespace RCToyCar
             {
                 GameEntry.Sound.PlaySound(30006);
                 m_MyRcToyCarData.HP += m_MyRcToyCarData.Healing;
+                GameEntry.Event.Fire(this,new PlayerHPDisplayEventArgs(){PlayerHP =m_MyRcToyCarData.HP});
                 Debug.Log("player拾取工具箱");
             }
             //治疗包回复生命

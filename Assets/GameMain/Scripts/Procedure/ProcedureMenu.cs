@@ -37,6 +37,7 @@ namespace RCToyCar
 
             m_StartGame = false;
             GameEntry.UI.OpenUIForm(UIFormId.MenuForm, this);
+            GameEntry.Event.Fire(this,new LoadingEventArgs(){LoadingSuccess = 1});
         }
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)

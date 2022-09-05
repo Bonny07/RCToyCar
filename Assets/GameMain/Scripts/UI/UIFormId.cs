@@ -39,5 +39,10 @@ namespace RCToyCar
         /// </summary>
         InGameUI = 99,
         
+        /// <summary>
+        /// 游戏内UI。
+        /// </summary>
+        LoadingUI = 202,
+        
     }
 }

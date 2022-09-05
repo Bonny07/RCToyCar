@@ -6,6 +6,7 @@
 //------------------------------------------------------------
 
 using GameFramework.Event;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -155,8 +156,13 @@ namespace RCToyCar
                 //判定游戏失败Fail，播放失败UI，返回主菜单
                 GameEntry.Event.Fire(this, new GameResultEventArgs() { GameResultPlay = 3 }); 
                 GameOver = true;
-
+                
             }
         } //游戏胜负播报
+
+        void OpenLoadingUI()
+        {
+            
+        }
     }
 }

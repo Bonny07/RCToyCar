@@ -16,7 +16,6 @@ namespace RCToyCar
     public class ProcedureMain : ProcedureBase
     {
         private const float GameOverDelayedSeconds = 3f;
-        private InGameUI m_InGameUI = null;
 
         private readonly Dictionary<GameMode, GameBase> m_Games = new Dictionary<GameMode, GameBase>();
         private GameBase m_CurrentGame = null;
@@ -45,7 +44,6 @@ namespace RCToyCar
         protected override void OnDestroy(ProcedureOwner procedureOwner)
         {
             base.OnDestroy(procedureOwner);
-
             m_Games.Clear();
         }
 
@@ -53,10 +51,12 @@ namespace RCToyCar
         {
             base.OnEnter(procedureOwner);
             GameEntry.UI.OpenUIForm(UIFormId.InGameUI);
+            GameEntry.Event.Fire(this,new LoadingEventArgs(){LoadingSuccess = 1});
             m_GotoMenu = false;
             GameMode gameMode = (GameMode)procedureOwner.GetData<VarByte>("GameMode").Value;
             m_CurrentGame = m_Games[gameMode];
             m_CurrentGame.Initialize();
+
         }
 
 
@@ -81,6 +81,7 @@ namespace RCToyCar
             }
 
             m_GotoMenuDelaySeconds += elapseSeconds;
+
             if (m_GotoMenuDelaySeconds >= GameOverDelayedSeconds)
             {
                 procedureOwner.SetData<VarInt32>("NextSceneId", GameEntry.Config.GetInt("Scene.Menu"));
@@ -92,10 +93,9 @@ namespace RCToyCar
         {
             if (m_CurrentGame != null)
             {
-                m_InGameUI = null;
                 m_CurrentGame.Shutdown();
                 m_CurrentGame = null;
-                // fire close ingameui 
+
                 GameEntry.Event.Fire(this,new GameOverEventArgs(){GameOverCloseUI = 1});
             }
            
