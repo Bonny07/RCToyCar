@@ -82,6 +82,8 @@
       <Resource Name="NewPrefabs/PlayerCar" LoadType="0" Packed="False" />
       <Resource Name="NewPrefabs/ShieldSpawner" LoadType="0" Packed="False" />
       <Resource Name="NewPrefabs/SpeedUpSpawner" LoadType="0" Packed="False" />
+      <Resource Name="Picture/234" LoadType="0" Packed="False" />
+      <Resource Name="Picture/FENGMIAN" LoadType="0" Packed="False" />
       <Resource Name="Scenes/Main" LoadType="0" Packed="False" />
       <Resource Name="Scenes/Menu" LoadType="0" Packed="False" />
       <Resource Name="Sounds/cannon_01" LoadType="0" Packed="False" />
@@ -122,6 +124,7 @@
       <Resource Name="UI/UIForms/AboutForm" LoadType="0" Packed="False" />
       <Resource Name="UI/UIForms/DialogForm" LoadType="0" Packed="False" />
       <Resource Name="UI/UIForms/InGameUI" LoadType="0" Packed="False" />
+      <Resource Name="UI/UIForms/LoadingUI" LoadType="0" Packed="False" />
       <Resource Name="UI/UIForms/MenuForm" LoadType="0" Packed="False" />
       <Resource Name="UI/UIForms/SettingForm" LoadType="0" Packed="False" />
       <Resource Name="UI/UISounds/click" LoadType="0" Packed="False" />
@@ -179,6 +182,7 @@
       <Asset Guid="2768a9a4c8d289840918dcb879705893" ResourceName="Meshes/prop_asteroid_03" />
       <Asset Guid="27f57cdbb306071438e27d0062e3ecd6" ResourceName="Sounds/DM-CGS-43" />
       <Asset Guid="2cb5eef4d7d7bf6459dd13a3f8d90246" ResourceName="Textures/part_jet_flare_dff" />
+      <Asset Guid="2daacb8e82d38344cb2e77171cec1448" ResourceName="Picture/FENGMIAN" />
       <Asset Guid="315e8ed2db27c254cb3366ff0793cd90" ResourceName="DataTables/Music" />
       <Asset Guid="3455fe69f7ddc4604b95bf9b0a1e88d7" ResourceName="Entities/RCCarExplosion" />
       <Asset Guid="352da872791696c48af3b21132e3e3c3" ResourceName="DataTables/UIForm" />
@@ -239,6 +243,7 @@
       <Asset Guid="8e114ded6a865324588170636872943c" ResourceName="DataTables/UISound" />
       <Asset Guid="8e27380ee68aa4a219b4db9018e7da31" ResourceName="Materials/done_fx_bolt_orange_mat" />
       <Asset Guid="9143e2b62ad50488482f9b73672fc331" ResourceName="Entities/Asteroid02" />
+      <Asset Guid="94e3cfc1e0bbdf240b5e3236c7ba8e2a" ResourceName="Picture/234" />
       <Asset Guid="955000b4d1441470e8cbf94f483228b5" ResourceName="Materials/done_tile_nebula_green_dff" />
       <Asset Guid="95632a9bfda526e45bc2c6734f48c0bb" ResourceName="DataTables/WayPoint" />
       <Asset Guid="97b1f8b25cca2bc458cb9d6127c8d186" ResourceName="Materials/part_spark_large_mat" />
@@ -297,6 +302,7 @@
       <Asset Guid="e82837c9099f69a48b48fc44eb8d119d" ResourceName="UI/UISprites/Common/progressbar" />
       <Asset Guid="e830964cdb85ff3429bca484c16bab44" ResourceName="UI/UISounds/select" />
       <Asset Guid="e85864330b68dde498dcb6e8711815d3" ResourceName="UI/UISprites/Common/round-button-filled" />
+      <Asset Guid="e8a2b13046c15e740af7313312b8d853" ResourceName="UI/UIForms/LoadingUI" />
       <Asset Guid="eab80269d2010e145b905341abf066ff" ResourceName="DataTables/AssetsPath" />
       <Asset Guid="eabb37cb6d738b443b398b701a64cd88" ResourceName="Textures/part_enginePulse_dff" />
       <Asset Guid="f2f4df0b7211e4c42a5638273525d8ee" ResourceName="UI/UISprites/Common/box" />
