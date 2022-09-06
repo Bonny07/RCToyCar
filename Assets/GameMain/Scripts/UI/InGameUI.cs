@@ -275,7 +275,7 @@ namespace RCToyCar
                 GameResultLose.SetActive(false); 
                 CountDown = 90f;
                 TimeisUp = 0;
-                GameEntry.UI.OpenUIForm(UIFormId.LoadingUI, this);
+
                 Close();
             }
         }

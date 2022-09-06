@@ -23,7 +23,12 @@ namespace RCToyCar
             {
                 return;
             }
-            Invoke("CloseLoadingUI",2f);
+
+            if (ne.LoadingSuccess == 1)
+            {
+                Invoke("CloseLoadingUI", 2f);
+                ne.LoadingSuccess = 0;
+            }
         }
 
         public void CloseLoadingUI()
